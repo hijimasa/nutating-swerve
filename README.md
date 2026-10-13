@@ -27,7 +27,9 @@ All documents inside the folders are in Japanese. This README and [README.ja.md]
 
 ## Mechanism
 
-![Single module in the air: crank, gimbal ring, tilted motor housing and wheel](single_wheel/results/air_video/mechanism.png)
+![One steering turn of a single module: the crank orbits the rear of the motor housing, the housing nutates on its gimbal without spinning, and the wheel heading goes around](single_wheel/results/air_video/mechanism.gif)
+
+*One steering turn (4 s), looping. The crank (purple) carries the rear end of the motor housing (orange) around a horizontal circle; the housing tilts on the gimbal ring (red) without ever rotating about its own axis, and the wheel heading sweeps a full turn. Full clip with instrumentation: [mechanism.mp4](single_wheel/results/air_video/mechanism.mp4).*
 
 - **Spherical four-bar.** The crank axis (vertical), the housing axis (45° from vertical), and the two gimbal axes all pass through the pivot P. The crank pin sits at distance L = 120 mm from P along the housing axis, so it moves on a circle of radius L sin 45° at height L cos 45° (84.85 mm each).
 - **Crank pin joint.** A spherical plain bearing (igubal EFOM-10 class) on the crank with a round stub from the housing passing through it. The stub can turn and slide in the bearing, so the loop is not over-constrained by manufacturing errors.
@@ -147,6 +149,31 @@ python cable_test.py --layout pin  --turns 5        # through the hollow crank s
 ```
 
 Each run writes `summary.json`, `trace.csv` and the exact `model.xml` used. Per-step traces and generated models are git-ignored; the committed `summary.json` files and figures are the numbers quoted above.
+
+## Related work and background reading
+
+No publication or patent was found (web search, October 2026) that steers a driven wheel endlessly by nutating the motor housing with a crank and a passive gimbal. The building blocks, however, are old, and the alternatives are well documented. Pointers for anyone who wants to go further:
+
+**The kinematics: a nutating body that does not spin**
+- [Swashplate, wobble plate, Z-crank (Wikipedia)](https://en.wikipedia.org/wiki/Swashplate) and [Nutation in engineering](https://en.wikipedia.org/wiki/Nutation_(engineering)): a nutating plate rides on a skewed bearing and does not rotate, unlike a swash plate. The crank-and-gimbal module is this mechanism with the "plate" replaced by a motor housing.
+- [US patents in class 74/60, "wabbler type" (Justia)](https://patents.justia.com/patents-by-us-classification/74/60): wobble-plate drives for pumps, compressors and engines.
+- [US4391121, orbital tool assembly for forming rivet heads](https://patents.google.com/patent/US4391121): a tool held by an anti-rotation arm wobbles on an inclined spindle but never spins, so it does not scrub the workpiece. Same principle, different purpose.
+
+**Slip-ring-free steering modules (different approach, wheel vertical)**
+- [US6491127B1, powered caster wheel module](https://patents.google.com/patent/US6491127B1/en) and [US8393431B2, omnidirectional drive and steering unit](https://patents.google.com/patent/US8393431): both motors stationary, drive through a bevel gear inside the steering ring. The coaxial swerve family.
+- [Differential-drive steering mechanism for omnidirectional robots (JRSJ 27(3), 2009)](https://www.jstage.jst.go.jp/article/jrsj/27/3/27_3_343/_pdf) and the [NSK active caster (Nikkei xTECH)](https://xtech.nikkei.com/atcl/nxt/news/18/12306/): two motors on the chassis, steering and drive from their speed difference.
+- [US12448038, steering wheel structure for an omnidirectional robot chassis](https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/12448038): wiring placed at the steering centre so the cable twists instead of winding.
+- [Chief Delphi: slip rings in swerve modules](https://www.chiefdelphi.com/t/anyone-tried-a-slip-ring/115436): practical experience from FRC teams with slip rings, cable slack and coaxial modules.
+
+**Passing power across a joint that turns without limit**
+- [Slip ring (Wikipedia)](https://en.wikipedia.org/wiki/Slip_ring); [limited-rotation twist capsule, US4710131](https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/4710131); [contactless power and signal transfer between robot joints, US5712552](https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/5712552).
+- Cable ratings used in this study: [igus chainflex CFROBOT3](https://www.mouser.lt/datasheet/3/6018/1/EU_Data_sheet_chainflex_CFROBOT3.pdf) (torsion ±180°/m) and [CF77.UL.D](https://www.tme.eu/Document/32e44ccd68809e7949a9ae63c1f05140/CF77.UL.03.05.INI-EN.pdf).
+
+**Omnidirectional wheel background**
+- [Modern Robotics, ch. 13.2: omnidirectional wheeled mobile robots](https://modernrobotics.northwestern.edu/nu-gm-book-resource/13-2-omnidirectional-wheeled-mobile-robots-part-1-of-2/) and the [Springer Handbook of Robotics, ch. 17 "Wheeled Robots"](https://web2.qatar.cmu.edu/~gdicaro/16311-Fall17/slides/handbook-robotics-ch-17.pdf): wheel types, holonomic vs. nonholonomic, caster offset.
+- [TidyBot++ (arXiv 2412.10447)](https://arxiv.org/pdf/2412.10447): why a centred swerve module is nonholonomic and how a caster offset changes that.
+- [Design and experimental characterization of an omnidirectional UGV, Robotica](https://www.cambridge.org/core/journals/robotica/article/design-and-experimental-characterization-of-an-omnidirectional-unmanned-ground-vehicle-for-unstructured-terrain/05D6B9A4E8A5D61057E9FC136906EF75): active split offset casters, scrubbing torque during steering.
+- [US12721251, mobile field robot with a tiltable steerable wheel axis](https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/12721251): a steerable wheel whose axis is not parallel to the ground, for a different reason (terrain), not nutation.
 
 ## License
 

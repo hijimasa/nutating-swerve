@@ -25,7 +25,9 @@
 
 ## 機構
 
-![単体モジュール：クランク、ジンバルリング、傾いたモーターハウジング、車輪](single_wheel/results/air_video/mechanism.png)
+![単体モジュールの操舵1周：クランクがモーターハウジング後端を回し、ハウジングはジンバル上で自転せずに首振りし、車輪の向きが1周する](single_wheel/results/air_video/mechanism.gif)
+
+*操舵1周（4秒）のループ。クランク（紫）がモーターハウジング（橙）の後端を水平な円に沿って運び、ハウジングはジンバルリング（赤）の上で自身の軸まわりには回転せずに傾きだけを変え、車輪の向きが1周する。計測値付きの全編は [mechanism.mp4](single_wheel/results/air_video/mechanism.mp4)。*
 
 - **球面4節リンク。** クランク軸（鉛直）、ハウジング軸（鉛直から45°）、ジンバル2軸がすべて支点Pを通ります。クランクピンはPからハウジング軸に沿って L = 120 mm の位置にあり、半径 L sin45°、高さ L cos45°（ともに84.85 mm）の円を描きます。
 - **クランクピンの結合。** クランク側の球面すべり軸受（igubal EFOM-10 相当）に、ハウジング側の丸いスタブを通します。スタブは回転と軸方向スライドができるので、製作誤差で過拘束になりません。
@@ -145,6 +147,31 @@ python cable_test.py --layout pin  --turns 5        # 中空クランク軸経�
 ```
 
 各実行は `summary.json`、`trace.csv`、実際に使った `model.xml` を書き出します。ステップごとのトレースと生成モデルはgit管理外で、コミットされている `summary.json` と図が本文の数値の元です。
+
+## 関連技術と参考文献
+
+2026年10月時点のWeb検索では、クランクと受動ジンバルでモーターハウジングを首振りさせて駆動輪を無限操舵する論文・特許は見つかりませんでした。ただし構成要素はどれも古く、代替手段もよく文書化されています。先に進む人のための手がかりです。
+
+**運動学：自転しない首振り体**
+- [斜板・ウォブルプレート・Z型クランク（Wikipedia, Swashplate）](https://en.wikipedia.org/wiki/Swashplate)、[Nutation (engineering)](https://en.wikipedia.org/wiki/Nutation_(engineering))：nutating plate は斜めの軸受に載って首振りするが自転しない（軸と一緒に回る swash plate と区別される）。本モジュールは、この「板」をモーターハウジングに置き換えたものです。
+- [米国特許分類 74/60「Wabbler type」（Justia）](https://patents.justia.com/patents-by-us-classification/74/60)：ポンプ・圧縮機・機関のウォブルプレート駆動。
+- [US4391121 オービタルかしめ工具](https://patents.google.com/patent/US4391121)：回り止め腕で保持された工具が傾いたスピンドル上で揺動するが自転せず、ワークをこすらない。原理は同じで目的が違う例。
+
+**スリップリングなしの操舵モジュール（別の発想、車輪は垂直）**
+- [US6491127B1 動力付きキャスターモジュール](https://patents.google.com/patent/US6491127B1/en)、[US8393431B2 全方向駆動操舵ユニット](https://patents.google.com/patent/US8393431)：両モーターを固定し、操舵リング内のベベルギヤで駆動する同軸式。
+- [全方向移動ロボットのための差動駆動操舵機構の開発（日本ロボット学会誌 27(3), 2009）](https://www.jstage.jst.go.jp/article/jrsj/27/3/27_3_343/_pdf)、[日本精工のアクティブキャスタ（日経クロステック）](https://xtech.nikkei.com/atcl/nxt/news/18/12306/)：車体側の2モーターの速度差で操舵と駆動を作る方式。
+- [US12448038 全方向移動ロボット用操舵輪構造](https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/12448038)：配線を操舵中心に置き、巻き付きではなくねじりで受ける。
+- [Chief Delphi: swerve モジュールのスリップリング](https://www.chiefdelphi.com/t/anyone-tried-a-slip-ring/115436)：FRCチームのスリップリング・たるみ配線・同軸式の実践経験。
+
+**無限回転する関節を電力・信号が越える方法**
+- [スリップリング（Wikipedia）](https://en.wikipedia.org/wiki/Slip_ring)、[有限回転用ツイストカプセル US4710131](https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/4710131)、[関節間の非接触給電・信号伝送 US5712552](https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/5712552)。
+- 本検討で使ったケーブル定格：[igus chainflex CFROBOT3](https://www.mouser.lt/datasheet/3/6018/1/EU_Data_sheet_chainflex_CFROBOT3.pdf)（ねじり±180°/m）、[CF77.UL.D](https://www.tme.eu/Document/32e44ccd68809e7949a9ae63c1f05140/CF77.UL.03.05.INI-EN.pdf)。
+
+**全方向移動車輪の基礎**
+- [Modern Robotics 13.2 全方向移動ロボット](https://modernrobotics.northwestern.edu/nu-gm-book-resource/13-2-omnidirectional-wheeled-mobile-robots-part-1-of-2/)、[Springer Handbook of Robotics 第17章 Wheeled Robots](https://web2.qatar.cmu.edu/~gdicaro/16311-Fall17/slides/handbook-robotics-ch-17.pdf)：車輪の種類、ホロノミック／非ホロノミック、キャスターオフセット。
+- [TidyBot++（arXiv 2412.10447）](https://arxiv.org/pdf/2412.10447)：中心操舵型 swerve が非ホロノミックである理由と、オフセットを付けた場合。
+- [全方向UGVの設計と実験（Robotica）](https://www.cambridge.org/core/journals/robotica/article/design-and-experimental-characterization-of-an-omnidirectional-unmanned-ground-vehicle-for-unstructured-terrain/05D6B9A4E8A5D61057E9FC136906EF75)：アクティブ分割オフセットキャスター、操舵時のスクラブトルク。
+- [US12721251 車輪軸を傾けられる農業用移動ロボット](https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/12721251)：地面に平行でない操舵輪軸。目的は不整地対応で、首振りではない。
 
 ## ライセンス
 
