@@ -1,0 +1,110 @@
+{
+  "scenario": "straight",
+  "notes": "straight line; used with the bump floor",
+  "rocker": false,
+  "bumps": true,
+  "dt": 0.001,
+  "sim_time_s": 8.500000000000451,
+  "max_pos_err_mm": 6.731085055290791,
+  "rms_pos_err_mm": 1.8771701370555296,
+  "final_pos_err_mm": 0.6689275672518976,
+  "max_yaw_err_deg": 1.2891579077789266,
+  "final_yaw_err_deg": -0.002916006423095556,
+  "actuator_energy_J": 6.84636496616496,
+  "wall_time_s": 4.436349990999588,
+  "warnings": {},
+  "modules": {
+    "fl": {
+      "crank_turns": -0.249965725138457,
+      "gimbal_x_range_deg": [
+        42.55511279580137,
+        45.000428197454774
+      ],
+      "gimbal_y_range_deg": [
+        -2.0024226948017065,
+        16.281436095821057
+      ],
+      "max_housing_rot_deg": 64.14990992471651,
+      "max_housing_dev_from_phi_model_deg": 0.1807162008274292,
+      "final_housing_rot_deg": 62.79380679542653,
+      "max_abs_tau_steer_Nm": 0.3928214016036727,
+      "max_abs_tau_drive_Nm": 0.41112684368964425,
+      "contact_fraction": 0.9476248477466505,
+      "Fn_mean_N": 14.489221357645599,
+      "Fn_p1_N": 0.0,
+      "Fn_p99_N": 29.04655004463552,
+      "Fn_below_2N_fraction": 0.05602923264311815,
+      "slip_lat_rms_mm_s": 3.5637498213583108,
+      "slip_lon_rms_mm_s": 1.7282663254318538
+    },
+    "fr": {
+      "crank_turns": 0.2501446817254629,
+      "gimbal_x_range_deg": [
+        -45.00031154070918,
+        -42.55511279580137
+      ],
+      "gimbal_y_range_deg": [
+        -1.2364928117054454,
+        16.28143609582104
+      ],
+      "max_housing_rot_deg": 63.635494555252144,
+      "max_housing_dev_from_phi_model_deg": 0.18071620082339565,
+      "final_housing_rot_deg": 62.82464841851115,
+      "max_abs_tau_steer_Nm": 0.4529358270065005,
+      "max_abs_tau_drive_Nm": 0.4670382844712432,
+      "contact_fraction": 0.9342265529841657,
+      "Fn_mean_N": 14.245950689502632,
+      "Fn_p1_N": 0.0,
+      "Fn_p99_N": 30.35193016839366,
+      "Fn_below_2N_fraction": 0.06577344701583435,
+      "slip_lat_rms_mm_s": 3.4689375667836733,
+      "slip_lon_rms_mm_s": 1.288737920671977
+    },
+    "rl": {
+      "crank_turns": -0.24957198189082824,
+      "gimbal_x_range_deg": [
+        42.55616996763999,
+        45.000569603556194
+      ],
+      "gimbal_y_range_deg": [
+        -0.6194957000507954,
+        16.2780562798131
+      ],
+      "max_housing_rot_deg": 63.21903389532282,
+      "max_housing_dev_from_phi_model_deg": 0.18069268449337328,
+      "final_housing_rot_deg": 62.72566728531225,
+      "max_abs_tau_steer_Nm": 0.4594499393023997,
+      "max_abs_tau_drive_Nm": 0.22801488037421386,
+      "contact_fraction": 0.9902557856272838,
+      "Fn_mean_N": 15.33544415010601,
+      "Fn_p1_N": 0.0,
+      "Fn_p99_N": 31.506915746621157,
+      "Fn_below_2N_fraction": 0.037758830694275276,
+      "slip_lat_rms_mm_s": 4.241558781586572,
+      "slip_lon_rms_mm_s": 5.412684986638838
+    },
+    "rr": {
+      "crank_turns": 0.2503894052476094,
+      "gimbal_x_range_deg": [
+        -45.00042673480545,
+        -42.55616996763999
+      ],
+      "gimbal_y_range_deg": [
+        -0.09915169113211429,
+        16.278056279813114
+      ],
+      "max_housing_rot_deg": 62.866879741489996,
+      "max_housing_dev_from_phi_model_deg": 0.1806926844893392,
+      "final_housing_rot_deg": 62.866879741489996,
+      "max_abs_tau_steer_Nm": 0.20854974217881275,
+      "max_abs_tau_drive_Nm": 0.17928867511238833,
+      "contact_fraction": 0.9719853836784409,
+      "Fn_mean_N": 15.632616224713031,
+      "Fn_p1_N": 0.0,
+      "Fn_p99_N": 31.375943288319334,
+      "Fn_below_2N_fraction": 0.048721071863580996,
+      "slip_lat_rms_mm_s": 4.745982398157305,
+      "slip_lon_rms_mm_s": 3.8080357748291953
+    }
+  }
+}

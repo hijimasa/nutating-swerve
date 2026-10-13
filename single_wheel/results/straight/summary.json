@@ -1,0 +1,42 @@
+{
+  "mujoco_version": "3.3.7",
+  "configuration": {
+    "mode": "ground",
+    "tilt": 45.0,
+    "cycles": 1,
+    "period": 4.0,
+    "wheel_speed": 3.0,
+    "torsion": 0.003,
+    "dt": 0.001,
+    "out": "/home/hijikata/irlab_ws/nutating_caster/nutating-swerve/single_wheel/results/straight",
+    "viewer": false,
+    "video": "",
+    "hold_steering": true
+  },
+  "completed_crank_turns": 3.1407645755599075e-16,
+  "closure_max_mm": 0.0008037740927723363,
+  "tilt_range_deg": [
+    44.999616306037474,
+    45.00000000013015
+  ],
+  "gimbal_x_range_deg": [
+    -0.3009539144112297,
+    5.843813042786807e-07
+  ],
+  "gimbal_y_range_deg": [
+    44.99889325472182,
+    45.00000000013015
+  ],
+  "final_housing_return_error_deg": 0.0003171122666999742,
+  "max_abs_steer_torque_Nm": 0.06304456945738217,
+  "max_abs_drive_torque_Nm": 0.08828521229290227,
+  "mean_wheel_speed_rad_s": 2.6989554493975945,
+  "contact_fraction": 1.0,
+  "mean_contact_slip_m_s": 5.7452835314181686e-11,
+  "mean_normal_load_N": 16.77509999083567,
+  "final_base_xy_m": [
+    0.00023949113085814305,
+    -0.9748445060068434
+  ],
+  "warnings": {}
+}

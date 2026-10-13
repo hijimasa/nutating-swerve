@@ -1,0 +1,57 @@
+{
+  "layout": "gimbal",
+  "cable": {
+    "spans": {
+      "A": {
+        "n_seg": 40,
+        "length_m": 0.20501143048198903
+      },
+      "B": {
+        "n_seg": 40,
+        "length_m": 0.18170905029151124
+      }
+    },
+    "length_m": 0.3867204807735003
+  },
+  "turns_done": 5.000033452845587,
+  "twist_range_deg": [
+    -6.595917913444657,
+    16.308622617725682
+  ],
+  "span_twist_range_deg": {
+    "m_cabA": [
+      -7.259207628188754,
+      12.717282567880407
+    ],
+    "m_cabB": [
+      -8.792200533781141,
+      9.06127683153446
+    ]
+  },
+  "twist_at_each_full_turn_deg": [
+    -4.18,
+    -0.27,
+    -0.28,
+    -0.28,
+    -0.28,
+    -0.35
+  ],
+  "final_twist_deg": -0.8524382056188898,
+  "min_bend_radius_mm": 22.088888555243734,
+  "settled_min_bend_radius_mm": 31.917954081995596,
+  "max_local_twist_rate_deg_per_m": 100.72560217147809,
+  "max_cyclic_curvature_range_per_m": 34.7869000198859,
+  "cyclic_bend_radius_equiv_mm": 28.746453389878113,
+  "min_cable_clearance_mm": 10.732005510415565,
+  "closest_part": "m_ringstrut",
+  "clearance_by_part_mm": {
+    "m_ringstrut": 10.73,
+    "m_ringx_p": 13.54,
+    "m_pin_bearing": 18.94,
+    "m_arm_p": 21.88,
+    "m_motor": 23.97,
+    "m_crank_hub": 24.71
+  },
+  "peak_steer_torque_Nm": 1.2309385386640275,
+  "warnings": {}
+}

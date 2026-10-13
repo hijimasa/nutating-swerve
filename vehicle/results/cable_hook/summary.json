@@ -1,0 +1,57 @@
+{
+  "layout": "hook",
+  "cable": {
+    "spans": {
+      "A": {
+        "n_seg": 40,
+        "length_m": 0.20501143048198905
+      },
+      "B": {
+        "n_seg": 40,
+        "length_m": 0.18170905029151124
+      }
+    },
+    "length_m": 0.3867204807735003
+  },
+  "turns_done": 5.0000363890994155,
+  "twist_range_deg": [
+    -6.740453116878258,
+    16.785424382971375
+  ],
+  "span_twist_range_deg": {
+    "m_cabA": [
+      -7.403907668582737,
+      13.348016357790515
+    ],
+    "m_cabB": [
+      -8.792405572628455,
+      9.061071501994707
+    ]
+  },
+  "twist_at_each_full_turn_deg": [
+    -4.14,
+    -0.32,
+    -0.33,
+    -0.33,
+    -0.33,
+    -0.36
+  ],
+  "final_twist_deg": -0.8519637655357196,
+  "min_bend_radius_mm": 22.323114710433586,
+  "settled_min_bend_radius_mm": 31.93936450356957,
+  "max_local_twist_rate_deg_per_m": 105.61938887455165,
+  "max_cyclic_curvature_range_per_m": 34.47008753500219,
+  "cyclic_bend_radius_equiv_mm": 29.01066030031294,
+  "min_cable_clearance_mm": 4.092344630144856,
+  "closest_part": "m_hookH_h",
+  "clearance_by_part_mm": {
+    "m_hookH_h": 4.09,
+    "m_hookH_v": 4.09,
+    "m_bridge_u": 12.34,
+    "m_ringstrut": 14.16,
+    "m_ringx_p": 18.44,
+    "m_pin_bearing": 18.94
+  },
+  "peak_steer_torque_Nm": 1.2313209031238135,
+  "warnings": {}
+}

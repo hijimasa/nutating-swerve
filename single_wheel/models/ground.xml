@@ -1,0 +1,70 @@
+<mujoco model="nutating_caster_ground">
+  <compiler angle="radian" autolimits="true" />
+  <option timestep="0.001" gravity="0 0 -9.81" integrator="implicitfast" solver="Newton" iterations="100" tolerance="1e-10" cone="elliptic" impratio="5" />
+  <visual>
+    <global offwidth="960" offheight="720" />
+    <headlight diffuse="0.8 0.8 0.8" ambient="0.35 0.35 0.35" />
+  </visual>
+  <statistic center="0 0 0.15" extent="0.45" />
+  <default>
+    <joint damping="0.001" armature="0.00001" limited="false" />
+    <geom contype="0" conaffinity="0" rgba="0.6 0.65 0.7 1" />
+    <site size="0.004" rgba="0.2 0.9 0.3 1" />
+  </default>
+  <asset>
+    <texture name="checker" type="2d" builtin="checker" rgb1="0.15 0.18 0.22" rgb2="0.23 0.27 0.31" width="256" height="256" />
+    <material name="floor_mat" texture="checker" texrepeat="12 12" />
+  </asset>
+  <worldbody>
+    <light pos="0 -1 1.5" dir="0 0 -1" diffuse="0.9 0.9 0.9" />
+    <geom name="floor" type="plane" size="3 3 0.1" material="floor_mat" contype="1" conaffinity="1" condim="4" friction="1.0 0.003 0.0001" solref="0.015 1" solimp="0.95 0.99 0.001" />
+    <body name="carrier" pos="0 0 0.08222438662">
+      <joint name="base_x" type="slide" axis="1 0 0" damping="0" armature="0" />
+      <joint name="base_y" type="slide" axis="0 1 0" damping="0" armature="0" />
+      <joint name="base_z" type="slide" axis="0 0 1" damping="0" armature="0" />
+      <inertial pos="0 0 0.10" mass="1.2" diaginertia="0.004 0.004 0.004" />
+      <geom type="box" pos="0 0 0.14" size="0.055 0.055 0.008" rgba="0.28 0.34 0.45 0.65" />
+      <geom type="capsule" fromto="-0.046 0 0 -0.046 0 0.14" size="0.004" rgba="0.5 0.55 0.65 1" />
+      <geom type="capsule" fromto="0.046 0 0 0.046 0 0.14" size="0.004" rgba="0.5 0.55 0.65 1" />
+      <site name="pivot" pos="0 0 0" rgba="0.9 0.2 0.2 1" />
+      <body name="outer_gimbal">
+        <joint name="gimbal_x" type="hinge" axis="1 0 0" />
+        <inertial pos="0 0 0" mass="0.06" diaginertia="0.00008 0.00005 0.00005" />
+        <geom type="capsule" fromto="-0.04 -0.034 0 0.04 -0.034 0" size="0.003" rgba="0.88 0.27 0.2 1" />
+        <geom type="capsule" fromto="0.04 -0.034 0 0.04 0.034 0" size="0.003" rgba="0.88 0.27 0.2 1" />
+        <geom type="capsule" fromto="0.04 0.034 0 -0.04 0.034 0" size="0.003" rgba="0.88 0.27 0.2 1" />
+        <geom type="capsule" fromto="-0.04 0.034 0 -0.04 -0.034 0" size="0.003" rgba="0.88 0.27 0.2 1" />
+        <body name="motor_housing" euler="0 0.7853981634 0">
+          <joint name="gimbal_y" type="hinge" axis="0 1 0" ref="0.7853981634" />
+          <inertial pos="0 0 0.05" mass="0.20" diaginertia="0.00035 0.00035 0.00010" />
+          <geom type="cylinder" pos="0 0 0.055" size="0.018 0.045" rgba="0.96 0.60 0.15 1" />
+          <geom type="capsule" fromto="0 0 -0.04 0 0 0.12" size="0.004" rgba="0.72 0.75 0.8 1" />
+          <geom type="capsule" fromto="0.019 0 0.02 0.019 0 0.09" size="0.0025" rgba="0.1 0.2 0.3 1" />
+          <site name="rear_pin" pos="0 0 0.12" />
+          <site name="cable_anchor" pos="0.021 0 0.07" rgba="0.6 0.3 0.9 1" />
+          <body name="wheel" pos="0 0 -0.04">
+            <joint name="wheel_spin" type="hinge" axis="0 0 1" damping="0.0002" armature="0.00002" />
+            <geom name="tire" type="cylinder" size="0.07 0.006" mass="0.15" rgba="0.12 0.16 0.21 1" contype="1" conaffinity="1" condim="4" friction="1.0 0.003 0.0001" solref="0.015 1" solimp="0.95 0.99 0.001" />
+            <geom type="cylinder" size="0.0455 0.0062" mass="0" rgba="0.20 0.55 0.78 1" />
+            <geom type="capsule" fromto="-0.0595 0 0.007 0.0595 0 0.007" size="0.0015" mass="0" rgba="0.8 0.85 0.9 1" />
+            <geom type="capsule" fromto="0 -0.0595 0.007 0 0.0595 0.007" size="0.0015" mass="0" rgba="0.8 0.85 0.9 1" />
+          </body>
+        </body>
+      </body>
+      <body name="crank" pos="0 0 0.08485281374">
+        <joint name="crank_spin" type="hinge" axis="0 0 1" damping="0.001" armature="0.0001" />
+        <inertial pos="0.04242640687 0 0" mass="0.10" diaginertia="0.00008 0.00020 0.00020" />
+        <geom type="capsule" fromto="0 0 0 0.08485281374 0 0" size="0.005" rgba="0.65 0.38 0.87 1" />
+        <geom type="cylinder" size="0.014 0.008" rgba="0.65 0.38 0.87 1" />
+        <site name="crank_pin" pos="0.08485281374 0 0" />
+      </body>
+    </body>
+  </worldbody>
+  <equality>
+    <connect name="rear_ball_joint" site1="rear_pin" site2="crank_pin" solref="0.003 1" solimp="0.99 0.999 0.0001" />
+  </equality>
+  <actuator>
+    <motor name="steering_motor" joint="crank_spin" ctrllimited="true" ctrlrange="-3 3" gear="1" />
+    <motor name="drive_motor" joint="wheel_spin" ctrllimited="true" ctrlrange="-0.8 0.8" gear="1" />
+  </actuator>
+</mujoco>

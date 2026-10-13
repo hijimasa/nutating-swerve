@@ -1,0 +1,42 @@
+{
+  "mujoco_version": "3.3.7",
+  "configuration": {
+    "mode": "air",
+    "tilt": 45,
+    "cycles": 3,
+    "period": 4.0,
+    "wheel_speed": 3.0,
+    "hold_steering": false,
+    "torsion": 0.003,
+    "dt": 0.001,
+    "out": "results/air_video",
+    "viewer": false,
+    "video": "results/air_video/mechanism.mp4"
+  },
+  "completed_crank_turns": 3.0000000000000018,
+  "closure_max_mm": 0.0018036966586596481,
+  "tilt_range_deg": [
+    44.99999999967806,
+    45.000857070913305
+  ],
+  "gimbal_x_range_deg": [
+    -45.000427689935215,
+    45.000427689935215
+  ],
+  "gimbal_y_range_deg": [
+    -45.000854772573724,
+    45.00085477257374
+  ],
+  "final_housing_return_error_deg": 1.7075472925031877e-06,
+  "max_abs_steer_torque_Nm": 0.005140326850624366,
+  "max_abs_drive_torque_Nm": 0.0029761667680840275,
+  "mean_wheel_speed_rad_s": 2.9952123273720064,
+  "contact_fraction": 0.0,
+  "mean_contact_slip_m_s": null,
+  "mean_normal_load_N": null,
+  "final_base_xy_m": [
+    0.0,
+    0.0
+  ],
+  "warnings": {}
+}

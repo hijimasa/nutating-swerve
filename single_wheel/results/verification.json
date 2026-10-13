@@ -1,0 +1,195 @@
+{
+  "passed": true,
+  "geometry": [
+    {
+      "tilt_deg": 30.0,
+      "max_ideal_closure_m": 4.586742097246578e-11,
+      "one_turn_pose_matrix_error": 1.9998398486957947e-16,
+      "max_motion_jacobian_sigma2_over_sigma1": 3.874477309126048e-16,
+      "instantaneous_planar_rank": 1
+    },
+    {
+      "tilt_deg": 45.0,
+      "max_ideal_closure_m": 3.373921790806294e-12,
+      "one_turn_pose_matrix_error": 3.4638242249419727e-16,
+      "max_motion_jacobian_sigma2_over_sigma1": 3.145578990321936e-16,
+      "instantaneous_planar_rank": 1
+    },
+    {
+      "tilt_deg": 60.0,
+      "max_ideal_closure_m": 4.586742540665896e-11,
+      "one_turn_pose_matrix_error": 5.999519546087384e-16,
+      "max_motion_jacobian_sigma2_over_sigma1": 3.331306688215916e-16,
+      "instantaneous_planar_rank": 1
+    }
+  ],
+  "air_10turns": {
+    "mujoco_version": "3.3.7",
+    "configuration": {
+      "mode": "air",
+      "tilt": 45.0,
+      "cycles": 10,
+      "period": 2.0,
+      "wheel_speed": 3.0,
+      "torsion": 0.003,
+      "dt": 0.001,
+      "out": "/home/hijikata/irlab_ws/nutating_caster/nutating-swerve/single_wheel/results/air_10turns",
+      "viewer": false,
+      "video": "",
+      "hold_steering": false
+    },
+    "completed_crank_turns": 10.000000000000004,
+    "closure_max_mm": 0.007223780726414415,
+    "tilt_range_deg": [
+      44.99999999972203,
+      45.003436485070154
+    ],
+    "gimbal_x_range_deg": [
+      -45.001713371834704,
+      45.00171337183434
+    ],
+    "gimbal_y_range_deg": [
+      -45.00342348633224,
+      45.00342348633223
+    ],
+    "final_housing_return_error_deg": 1.7075472925031877e-06,
+    "max_abs_steer_torque_Nm": 0.010686714896897875,
+    "max_abs_drive_torque_Nm": 0.004630251777126837,
+    "mean_wheel_speed_rad_s": 2.995006286544955,
+    "contact_fraction": 0.0,
+    "mean_contact_slip_m_s": null,
+    "mean_normal_load_N": null,
+    "final_base_xy_m": [
+      0.0,
+      0.0
+    ],
+    "warnings": {}
+  },
+  "ground": {
+    "mujoco_version": "3.3.7",
+    "configuration": {
+      "mode": "ground",
+      "tilt": 45.0,
+      "cycles": 2,
+      "period": 4.0,
+      "wheel_speed": 3.0,
+      "torsion": 0.003,
+      "dt": 0.001,
+      "out": "/home/hijikata/irlab_ws/nutating_caster/nutating-swerve/single_wheel/results/ground",
+      "viewer": false,
+      "video": "",
+      "hold_steering": false
+    },
+    "completed_crank_turns": 1.9999999999999016,
+    "closure_max_mm": 0.001186075805629563,
+    "tilt_range_deg": [
+      44.99961671130734,
+      45.00054293241056
+    ],
+    "gimbal_x_range_deg": [
+      -45.00000674650084,
+      45.00000674586374
+    ],
+    "gimbal_y_range_deg": [
+      -45.00050529955765,
+      45.0005052995576
+    ],
+    "final_housing_return_error_deg": 0.0003171122666999742,
+    "max_abs_steer_torque_Nm": 0.04414709892546316,
+    "max_abs_drive_torque_Nm": 0.0695170755281743,
+    "mean_wheel_speed_rad_s": 2.700650719168831,
+    "contact_fraction": 1.0,
+    "mean_contact_slip_m_s": 0.002519035541917606,
+    "mean_normal_load_N": 16.775041100805446,
+    "final_base_xy_m": [
+      -0.003013120649640292,
+      -0.2189476440005601
+    ],
+    "warnings": {}
+  },
+  "ground_half_dt": {
+    "mujoco_version": "3.3.7",
+    "configuration": {
+      "mode": "ground",
+      "tilt": 45.0,
+      "cycles": 2,
+      "period": 4.0,
+      "wheel_speed": 3.0,
+      "torsion": 0.003,
+      "dt": 0.0005,
+      "out": "/home/hijikata/irlab_ws/nutating_caster/nutating-swerve/single_wheel/results/ground_half_dt",
+      "viewer": false,
+      "video": "",
+      "hold_steering": false
+    },
+    "completed_crank_turns": 1.9999999999998541,
+    "closure_max_mm": 0.0016238104588961824,
+    "tilt_range_deg": [
+      44.9996009966477,
+      45.000758082687284
+    ],
+    "gimbal_x_range_deg": [
+      -45.000113421706494,
+      45.00011342105309
+    ],
+    "gimbal_y_range_deg": [
+      -45.000721213110275,
+      45.0007212131103
+    ],
+    "final_housing_return_error_deg": 0.0003171122666999742,
+    "max_abs_steer_torque_Nm": 0.04414713606846291,
+    "max_abs_drive_torque_Nm": 0.06957483344901087,
+    "mean_wheel_speed_rad_s": 2.7008214049650068,
+    "contact_fraction": 1.0,
+    "mean_contact_slip_m_s": 0.0025185646627745397,
+    "mean_normal_load_N": 16.77504958943536,
+    "final_base_xy_m": [
+      -0.003015372082256084,
+      -0.21889264844687353
+    ],
+    "warnings": {}
+  },
+  "straight": {
+    "mujoco_version": "3.3.7",
+    "configuration": {
+      "mode": "ground",
+      "tilt": 45.0,
+      "cycles": 1,
+      "period": 4.0,
+      "wheel_speed": 3.0,
+      "torsion": 0.003,
+      "dt": 0.001,
+      "out": "/home/hijikata/irlab_ws/nutating_caster/nutating-swerve/single_wheel/results/straight",
+      "viewer": false,
+      "video": "",
+      "hold_steering": true
+    },
+    "completed_crank_turns": 3.1407645755599075e-16,
+    "closure_max_mm": 0.0008037740927723363,
+    "tilt_range_deg": [
+      44.999616306037474,
+      45.00000000013015
+    ],
+    "gimbal_x_range_deg": [
+      -0.3009539144112297,
+      5.843813042786807e-07
+    ],
+    "gimbal_y_range_deg": [
+      44.99889325472182,
+      45.00000000013015
+    ],
+    "final_housing_return_error_deg": 0.0003171122666999742,
+    "max_abs_steer_torque_Nm": 0.06304456945738217,
+    "max_abs_drive_torque_Nm": 0.08828521229290227,
+    "mean_wheel_speed_rad_s": 2.6989554493975945,
+    "contact_fraction": 1.0,
+    "mean_contact_slip_m_s": 5.7452835314181686e-11,
+    "mean_normal_load_N": 16.77509999083567,
+    "final_base_xy_m": [
+      0.00023949113085814305,
+      -0.9748445060068434
+    ],
+    "warnings": {}
+  },
+  "ground_dt_endpoint_difference_mm": 0.05504161947214089
+}

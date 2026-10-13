@@ -1,0 +1,42 @@
+{
+  "mujoco_version": "3.3.7",
+  "configuration": {
+    "mode": "air",
+    "tilt": 45.0,
+    "cycles": 10,
+    "period": 2.0,
+    "wheel_speed": 3.0,
+    "torsion": 0.003,
+    "dt": 0.001,
+    "out": "/home/hijikata/irlab_ws/nutating_caster/nutating-swerve/single_wheel/results/air_10turns",
+    "viewer": false,
+    "video": "",
+    "hold_steering": false
+  },
+  "completed_crank_turns": 10.000000000000004,
+  "closure_max_mm": 0.007223780726414415,
+  "tilt_range_deg": [
+    44.99999999972203,
+    45.003436485070154
+  ],
+  "gimbal_x_range_deg": [
+    -45.001713371834704,
+    45.00171337183434
+  ],
+  "gimbal_y_range_deg": [
+    -45.00342348633224,
+    45.00342348633223
+  ],
+  "final_housing_return_error_deg": 1.7075472925031877e-06,
+  "max_abs_steer_torque_Nm": 0.010686714896897875,
+  "max_abs_drive_torque_Nm": 0.004630251777126837,
+  "mean_wheel_speed_rad_s": 2.995006286544955,
+  "contact_fraction": 0.0,
+  "mean_contact_slip_m_s": null,
+  "mean_normal_load_N": null,
+  "final_base_xy_m": [
+    0.0,
+    0.0
+  ],
+  "warnings": {}
+}

@@ -1,0 +1,1533 @@
+{
+  "passed": true,
+  "checks": {
+    "loop closure and housing periodicity": true,
+    "closed-form J_phi/J_psi match MuJoCo Jacobian": true,
+    "module instantaneous rank 1 (no radial component)": true,
+    "module parts >= 2 mm apart over a full turn": true,
+    "no contact between modules / chassis": true,
+    "square: tracking < 10 mm / 1.5 deg, no warnings": true,
+    "square: 4 wheels within 0.2 mm of floor >= 99 %": true,
+    "square: housing pose = f(crank angle) within 1 deg": true,
+    "circle: tracking < 10 mm / 1.5 deg, no warnings": true,
+    "circle: 4 wheels within 0.2 mm of floor >= 99 %": true,
+    "circle: housing pose = f(crank angle) within 1 deg": true,
+    "circle_spin: tracking < 10 mm / 1.5 deg, no warnings": true,
+    "circle_spin: 4 wheels within 0.2 mm of floor >= 99 %": true,
+    "circle_spin: housing pose = f(crank angle) within 1 deg": true,
+    "star: tracking < 10 mm / 1.5 deg, no warnings": true,
+    "star: 4 wheels within 0.2 mm of floor >= 99 %": true,
+    "star: housing pose = f(crank angle) within 1 deg": true,
+    "spin: tracking < 10 mm / 1.5 deg, no warnings": true,
+    "spin: 4 wheels within 0.2 mm of floor >= 99 %": true,
+    "spin: housing pose = f(crank angle) within 1 deg": true,
+    "circle_half_dt: tracking < 10 mm / 1.5 deg, no warnings": true,
+    "circle_half_dt: 4 wheels within 0.2 mm of floor >= 99 %": true,
+    "circle_half_dt: housing pose = f(crank angle) within 1 deg": true,
+    "square: endless steering (>= 1.5 turns, one direction)": true,
+    "circle_spin: >= 3.5 crank turns": true,
+    "bump (rigid chassis): tracking < 10 mm / 2 deg, no warnings": true,
+    "circle: dt 1 ms vs 0.5 ms max error within 2 mm": true,
+    "cable (v4 brackets): twist returns within 10 deg every turn": true,
+    "cable (v4 brackets): local twist rate <= 180 deg/m (chainflex torsion rating)": true,
+    "cable (v4 brackets): >= 2 mm from every part (beyond the clamp sleeves)": true,
+    "conventional (cable end steered): twist accumulates > 250 deg/turn": true
+  },
+  "results": {
+    "kinematics": {
+      "max_closure_m": 3.643216743221108e-10,
+      "one_turn_pose_error": 3.463824224941973e-16,
+      "max_Jphi_error_m": 4.4969172124985776e-17,
+      "max_Jpsi_error_m": 2.909219710836648e-17,
+      "max_radial_component_m": 2.7755575615628914e-17
+    },
+    "clearance": {
+      "module_pairs": 570,
+      "module_min_mm": 2.999999999999982,
+      "module_closest": [
+        {
+          "pair": [
+            "m_pillow_p",
+            "m_bridge_d"
+          ],
+          "clearance_mm": 3.0
+        },
+        {
+          "pair": [
+            "m_ringx_p",
+            "m_hookH_h"
+          ],
+          "clearance_mm": 3.07
+        },
+        {
+          "pair": [
+            "m_pillow_p",
+            "m_bridge_h"
+          ],
+          "clearance_mm": 3.45
+        },
+        {
+          "pair": [
+            "m_bridge_u",
+            "m_tire"
+          ],
+          "clearance_mm": 4.53
+        },
+        {
+          "pair": [
+            "m_bridge_h",
+            "m_tire"
+          ],
+          "clearance_mm": 4.53
+        },
+        {
+          "pair": [
+            "m_belt",
+            "m_crank_shaft"
+          ],
+          "clearance_mm": 5.0
+        },
+        {
+          "pair": [
+            "m_bridge_d",
+            "m_tube"
+          ],
+          "clearance_mm": 5.27
+        },
+        {
+          "pair": [
+            "m_bridge_h",
+            "m_tube"
+          ],
+          "clearance_mm": 5.27
+        }
+      ],
+      "vehicle_pairs": 8620,
+      "vehicle_min_mm": 26.999996,
+      "vehicle_closest": [
+        {
+          "pair": [
+            "plate",
+            "fl_crank_hub"
+          ],
+          "clearance_mm": 27.0
+        },
+        {
+          "pair": [
+            "plate",
+            "fr_crank_hub"
+          ],
+          "clearance_mm": 27.0
+        },
+        {
+          "pair": [
+            "plate",
+            "rl_crank_hub"
+          ],
+          "clearance_mm": 27.0
+        },
+        {
+          "pair": [
+            "plate",
+            "rr_crank_hub"
+          ],
+          "clearance_mm": 27.0
+        },
+        {
+          "pair": [
+            "plate",
+            "fl_crank_arm"
+          ],
+          "clearance_mm": 31.0
+        },
+        {
+          "pair": [
+            "plate",
+            "fr_crank_arm"
+          ],
+          "clearance_mm": 31.0
+        },
+        {
+          "pair": [
+            "plate",
+            "rl_crank_arm"
+          ],
+          "clearance_mm": 31.0
+        },
+        {
+          "pair": [
+            "plate",
+            "rr_crank_arm"
+          ],
+          "clearance_mm": 31.0
+        }
+      ]
+    },
+    "cable": {
+      "hook": {
+        "layout": "hook",
+        "cable": {
+          "spans": {
+            "A": {
+              "n_seg": 40,
+              "length_m": 0.20501143048198905
+            },
+            "B": {
+              "n_seg": 40,
+              "length_m": 0.18170905029151124
+            }
+          },
+          "length_m": 0.3867204807735003
+        },
+        "turns_done": 5.0000363890994155,
+        "twist_range_deg": [
+          -6.740453116878258,
+          16.785424382971375
+        ],
+        "span_twist_range_deg": {
+          "m_cabA": [
+            -7.403907668582737,
+            13.348016357790515
+          ],
+          "m_cabB": [
+            -8.792405572628455,
+            9.061071501994707
+          ]
+        },
+        "twist_at_each_full_turn_deg": [
+          -4.14,
+          -0.32,
+          -0.33,
+          -0.33,
+          -0.33,
+          -0.36
+        ],
+        "final_twist_deg": -0.8519637655357196,
+        "min_bend_radius_mm": 22.323114710433586,
+        "settled_min_bend_radius_mm": 31.93936450356957,
+        "max_local_twist_rate_deg_per_m": 105.61938887455165,
+        "max_cyclic_curvature_range_per_m": 34.47008753500219,
+        "cyclic_bend_radius_equiv_mm": 29.01066030031294,
+        "min_cable_clearance_mm": 4.092344630144856,
+        "closest_part": "m_hookH_h",
+        "clearance_by_part_mm": {
+          "m_hookH_h": 4.09,
+          "m_hookH_v": 4.09,
+          "m_bridge_u": 12.34,
+          "m_ringstrut": 14.16,
+          "m_ringx_p": 18.44,
+          "m_pin_bearing": 18.94
+        },
+        "peak_steer_torque_Nm": 1.2313209031238135,
+        "warnings": {}
+      },
+      "gimbal": {
+        "layout": "gimbal",
+        "cable": {
+          "spans": {
+            "A": {
+              "n_seg": 40,
+              "length_m": 0.20501143048198903
+            },
+            "B": {
+              "n_seg": 40,
+              "length_m": 0.18170905029151124
+            }
+          },
+          "length_m": 0.3867204807735003
+        },
+        "turns_done": 5.000033452845587,
+        "twist_range_deg": [
+          -6.595917913444657,
+          16.308622617725682
+        ],
+        "span_twist_range_deg": {
+          "m_cabA": [
+            -7.259207628188754,
+            12.717282567880407
+          ],
+          "m_cabB": [
+            -8.792200533781141,
+            9.06127683153446
+          ]
+        },
+        "twist_at_each_full_turn_deg": [
+          -4.18,
+          -0.27,
+          -0.28,
+          -0.28,
+          -0.28,
+          -0.35
+        ],
+        "final_twist_deg": -0.8524382056188898,
+        "min_bend_radius_mm": 22.088888555243734,
+        "settled_min_bend_radius_mm": 31.917954081995596,
+        "max_local_twist_rate_deg_per_m": 100.72560217147809,
+        "max_cyclic_curvature_range_per_m": 34.7869000198859,
+        "cyclic_bend_radius_equiv_mm": 28.746453389878113,
+        "min_cable_clearance_mm": 10.732005510415565,
+        "closest_part": "m_ringstrut",
+        "clearance_by_part_mm": {
+          "m_ringstrut": 10.73,
+          "m_ringx_p": 13.54,
+          "m_pin_bearing": 18.94,
+          "m_arm_p": 21.88,
+          "m_motor": 23.97,
+          "m_crank_hub": 24.71
+        },
+        "peak_steer_torque_Nm": 1.2309385386640275,
+        "warnings": {}
+      },
+      "clamp": {
+        "layout": "clamp",
+        "cable": {
+          "spans": {
+            "A": {
+              "n_seg": 40,
+              "length_m": 0.1632682559638975
+            },
+            "B": {
+              "n_seg": 40,
+              "length_m": 0.09850655838092147
+            }
+          },
+          "length_m": 0.261774814344819
+        },
+        "turns_done": 4.999948399245023,
+        "twist_range_deg": [
+          -4.572010380962018,
+          11.395969165682095
+        ],
+        "span_twist_range_deg": {
+          "m_cabA": [
+            -3.873372007238735,
+            11.728415718107852
+          ],
+          "m_cabB": [
+            -5.871367132133729,
+            4.026577134974146
+          ]
+        },
+        "twist_at_each_full_turn_deg": [
+          -3.6,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          -0.12
+        ],
+        "final_twist_deg": 0.10487561742255513,
+        "min_bend_radius_mm": 13.797788045915969,
+        "settled_min_bend_radius_mm": 22.22653401944863,
+        "max_local_twist_rate_deg_per_m": 1865.772974134874,
+        "max_cyclic_curvature_range_per_m": 46.394460843085,
+        "cyclic_bend_radius_equiv_mm": 21.55429725505794,
+        "min_cable_clearance_mm": -1.6534202346820681,
+        "closest_part": "m_motor",
+        "clearance_by_part_mm": {
+          "m_motor": -1.65,
+          "m_pillow_n": 0.09,
+          "m_bridge_u": 4.05,
+          "m_ringlug": 4.93,
+          "m_trunx_n": 9.55,
+          "m_pillow_p": 11.11
+        },
+        "peak_steer_torque_Nm": 1.220153794193546,
+        "warnings": {}
+      },
+      "pin": {
+        "layout": "pin",
+        "cable": {
+          "n_seg": 64,
+          "length_m": 0.48204697526666557,
+          "slot_index": 22,
+          "plate_index": 25
+        },
+        "turns_done": 4.999999799593743,
+        "twist_range_deg": [
+          -35.28724932780371,
+          28.86493736682625
+        ],
+        "span_twist_range_deg": {
+          "m_cab": [
+            -35.28724932780371,
+            28.86493736682625
+          ]
+        },
+        "twist_at_each_full_turn_deg": [
+          -0.21,
+          3.6,
+          3.67,
+          3.48,
+          3.23,
+          -2.21
+        ],
+        "final_twist_deg": 0.4483976809173523,
+        "min_bend_radius_mm": 24.286961421792473,
+        "settled_min_bend_radius_mm": 29.131719145503926,
+        "max_local_twist_rate_deg_per_m": 156.35698489226337,
+        "max_cyclic_curvature_range_per_m": 72.8608902317748,
+        "cyclic_bend_radius_equiv_mm": 13.724784267923996,
+        "min_cable_clearance_mm": 11.421986227843023,
+        "closest_part": "m_crank_arm",
+        "clearance_by_part_mm": {
+          "m_crank_arm": 11.42,
+          "m_post_n": 16.87,
+          "m_post_p": 18.2,
+          "m_bracket_p": 27.33,
+          "m_crank_hub": 27.61,
+          "m_bracket_n": 27.83
+        },
+        "peak_steer_torque_Nm": 1.225933884994214,
+        "warnings": {}
+      },
+      "crank": {
+        "layout": "crank",
+        "cable": {
+          "n_seg": 64,
+          "length_m": 0.48204697526666557,
+          "slot_index": 22,
+          "plate_index": 25
+        },
+        "turns_done": 1.9999523729763575,
+        "twist_range_deg": [
+          -643.7160141871301,
+          1.72417410584091
+        ],
+        "span_twist_range_deg": {
+          "m_cab": [
+            -643.7160141871301,
+            1.72417410584091
+          ]
+        },
+        "twist_at_each_full_turn_deg": [
+          0.2,
+          -297.7,
+          -643.34
+        ],
+        "final_twist_deg": -643.3859741624342,
+        "min_bend_radius_mm": 22.737289970249343,
+        "settled_min_bend_radius_mm": 29.131635521032678,
+        "max_local_twist_rate_deg_per_m": 1405.496479497954,
+        "max_cyclic_curvature_range_per_m": 63.93947694261939,
+        "cyclic_bend_radius_equiv_mm": 15.639790123673057,
+        "min_cable_clearance_mm": 7.789542986043122,
+        "closest_part": "m_crank_arm",
+        "clearance_by_part_mm": {
+          "m_crank_arm": 7.79,
+          "m_post_p": 19.0,
+          "m_bracket_n": 20.14,
+          "m_post_n": 22.47,
+          "m_crank_hub": 25.97,
+          "m_motor": 30.0
+        },
+        "peak_steer_torque_Nm": 1.2522052550074152,
+        "warnings": {}
+      }
+    },
+    "square": {
+      "scenario": "square",
+      "notes": "yaw held at 0; every corner steers +90 deg, no wheel reversal",
+      "rocker": false,
+      "bumps": false,
+      "dt": 0.001,
+      "sim_time_s": 30.500000000014904,
+      "max_pos_err_mm": 4.826144823147477,
+      "rms_pos_err_mm": 1.2544106807814523,
+      "final_pos_err_mm": 0.8957413985690326,
+      "max_yaw_err_deg": 0.8044531558443558,
+      "final_yaw_err_deg": -0.12770089534556375,
+      "actuator_energy_J": 39.62796865867636,
+      "wall_time_s": 14.496339698998781,
+      "warnings": {},
+      "modules": {
+        "fl": {
+          "crank_turns": 1.4966173258938968,
+          "gimbal_x_range_deg": [
+            -45.0004212513702,
+            45.00027949571526
+          ],
+          "gimbal_y_range_deg": [
+            -45.000666356978336,
+            45.000564719813525
+          ],
+          "max_housing_rot_deg": 90.00080409113043,
+          "max_housing_dev_from_phi_model_deg": 0.2908313309809811,
+          "final_housing_rot_deg": 89.99388269905333,
+          "max_abs_tau_steer_Nm": 0.33094580536513196,
+          "max_abs_tau_drive_Nm": 0.22376186683017443,
+          "contact_fraction": 1.0,
+          "Fn_mean_N": 14.314502431635457,
+          "Fn_p1_N": 10.441756080887151,
+          "Fn_p99_N": 18.485366368993038,
+          "Fn_below_2N_fraction": 0.00033101621979476995,
+          "slip_lat_rms_mm_s": 3.527919744088654,
+          "slip_lon_rms_mm_s": 2.3565618111891915
+        },
+        "fr": {
+          "crank_turns": 2.0036877339261627,
+          "gimbal_x_range_deg": [
+            -45.00028930164817,
+            45.0003343905308
+          ],
+          "gimbal_y_range_deg": [
+            -45.00041723114773,
+            45.000369524944674
+          ],
+          "max_housing_rot_deg": 90.00060676769776,
+          "max_housing_dev_from_phi_model_deg": 0.28180652153543473,
+          "final_housing_rot_deg": 1.3271808109346224,
+          "max_abs_tau_steer_Nm": 0.45423295510046685,
+          "max_abs_tau_drive_Nm": 0.15767501699247272,
+          "contact_fraction": 1.0,
+          "Fn_mean_N": 14.389336054540472,
+          "Fn_p1_N": 10.19043157066723,
+          "Fn_p99_N": 18.231243701586244,
+          "Fn_below_2N_fraction": 0.0006620324395895399,
+          "slip_lat_rms_mm_s": 3.5965787073687463,
+          "slip_lon_rms_mm_s": 2.240747923890113
+        },
+        "rl": {
+          "crank_turns": 1.49680126284286,
+          "gimbal_x_range_deg": [
+            -45.00034967656171,
+            45.00050733552175
+          ],
+          "gimbal_y_range_deg": [
+            -45.00036108696071,
+            45.00060189374423
+          ],
+          "max_housing_rot_deg": 90.00050907525387,
+          "max_housing_dev_from_phi_model_deg": 0.29461017885984453,
+          "final_housing_rot_deg": 89.99453278938921,
+          "max_abs_tau_steer_Nm": 0.4759310192689118,
+          "max_abs_tau_drive_Nm": 0.18853171437065364,
+          "contact_fraction": 1.0,
+          "Fn_mean_N": 15.498518843559689,
+          "Fn_p1_N": 11.643061749710014,
+          "Fn_p99_N": 19.61116974796305,
+          "Fn_below_2N_fraction": 0.0006620324395895399,
+          "slip_lat_rms_mm_s": 3.515359221263285,
+          "slip_lon_rms_mm_s": 2.039334578979849
+        },
+        "rr": {
+          "crank_turns": 2.0035276214875632,
+          "gimbal_x_range_deg": [
+            -45.000262827661835,
+            45.00028001953498
+          ],
+          "gimbal_y_range_deg": [
+            -45.00038351647787,
+            45.00032812813236
+          ],
+          "max_housing_rot_deg": 90.00051730419659,
+          "max_housing_dev_from_phi_model_deg": 0.2817671453708462,
+          "final_housing_rot_deg": 1.269803118428104,
+          "max_abs_tau_steer_Nm": 0.39108869102687865,
+          "max_abs_tau_drive_Nm": 0.26511510178781045,
+          "contact_fraction": 1.0,
+          "Fn_mean_N": 15.436555455420624,
+          "Fn_p1_N": 11.714983438560632,
+          "Fn_p99_N": 19.3485100865212,
+          "Fn_below_2N_fraction": 0.0006620324395895399,
+          "slip_lat_rms_mm_s": 3.5713139592811682,
+          "slip_lon_rms_mm_s": 1.9905673221255658
+        }
+      }
+    },
+    "circle": {
+      "scenario": "circle",
+      "notes": "translate around a circle with yaw held: steering turns once per lap",
+      "rocker": false,
+      "bumps": false,
+      "dt": 0.001,
+      "sim_time_s": 28.00000000001185,
+      "max_pos_err_mm": 4.829494171838604,
+      "rms_pos_err_mm": 1.2772956611977415,
+      "final_pos_err_mm": 0.41877835250966366,
+      "max_yaw_err_deg": 0.25455343645960354,
+      "final_yaw_err_deg": 0.060782110407113066,
+      "actuator_energy_J": 58.203176578310774,
+      "wall_time_s": 12.119796455001051,
+      "warnings": {},
+      "modules": {
+        "fl": {
+          "crank_turns": 2.7582087197819822,
+          "gimbal_x_range_deg": [
+            -45.000312144644894,
+            45.00024314357889
+          ],
+          "gimbal_y_range_deg": [
+            -45.00031311314072,
+            45.00044056483601
+          ],
+          "max_housing_rot_deg": 90.00042042490452,
+          "max_housing_dev_from_phi_model_deg": 0.18033432374483307,
+          "final_housing_rot_deg": 61.37260392601599,
+          "max_abs_tau_steer_Nm": 0.22717624556914512,
+          "max_abs_tau_drive_Nm": 0.1582272212704101,
+          "contact_fraction": 1.0,
+          "Fn_mean_N": 14.293101352462259,
+          "Fn_p1_N": 11.184606847119142,
+          "Fn_p99_N": 18.22348536310615,
+          "Fn_below_2N_fraction": 0.0,
+          "slip_lat_rms_mm_s": 3.114560428997015,
+          "slip_lon_rms_mm_s": 1.1713646560614215
+        },
+        "fr": {
+          "crank_turns": 3.2582205978152823,
+          "gimbal_x_range_deg": [
+            -45.000223209415914,
+            45.00024598589206
+          ],
+          "gimbal_y_range_deg": [
+            -45.000265603394276,
+            44.99992205594255
+          ],
+          "max_housing_rot_deg": 90.00046301491017,
+          "max_housing_dev_from_phi_model_deg": 0.1810889318824399,
+          "final_housing_rot_deg": 64.21067181135425,
+          "max_abs_tau_steer_Nm": 0.42017753436370087,
+          "max_abs_tau_drive_Nm": 0.15789725914678865,
+          "contact_fraction": 1.0,
+          "Fn_mean_N": 14.419328183699939,
+          "Fn_p1_N": 10.625251700262059,
+          "Fn_p99_N": 17.43494217417679,
+          "Fn_below_2N_fraction": 0.0,
+          "slip_lat_rms_mm_s": 3.964418013463173,
+          "slip_lon_rms_mm_s": 2.7119047246947896
+        },
+        "rl": {
+          "crank_turns": 2.7509820265181593,
+          "gimbal_x_range_deg": [
+            -45.00013056167863,
+            45.00026445116719
+          ],
+          "gimbal_y_range_deg": [
+            -45.000301423621316,
+            45.00029862974627
+          ],
+          "max_housing_rot_deg": 90.00048261470705,
+          "max_housing_dev_from_phi_model_deg": 0.180294388539814,
+          "final_housing_rot_deg": 62.629910646426175,
+          "max_abs_tau_steer_Nm": 0.49734814684780043,
+          "max_abs_tau_drive_Nm": 0.28724729315575115,
+          "contact_fraction": 1.0,
+          "Fn_mean_N": 15.549280437604658,
+          "Fn_p1_N": 11.77830457863409,
+          "Fn_p99_N": 19.36318841527942,
+          "Fn_below_2N_fraction": 0.0,
+          "slip_lat_rms_mm_s": 2.8590512436130093,
+          "slip_lon_rms_mm_s": 1.4928843261114124
+        },
+        "rr": {
+          "crank_turns": 3.250979047252014,
+          "gimbal_x_range_deg": [
+            -45.00022691289894,
+            45.000239576493236
+          ],
+          "gimbal_y_range_deg": [
+            -45.00026997203221,
+            44.99999117292144
+          ],
+          "max_housing_rot_deg": 90.00037322438617,
+          "max_housing_dev_from_phi_model_deg": 0.18106514465621282,
+          "final_housing_rot_deg": 62.968653323091985,
+          "max_abs_tau_steer_Nm": 0.2866868697950403,
+          "max_abs_tau_drive_Nm": 0.15713447236028372,
+          "contact_fraction": 1.0,
+          "Fn_mean_N": 15.386021871065749,
+          "Fn_p1_N": 11.779824617560008,
+          "Fn_p99_N": 18.835046719391976,
+          "Fn_below_2N_fraction": 0.0,
+          "slip_lat_rms_mm_s": 3.9045529490987545,
+          "slip_lon_rms_mm_s": 2.291090728818209
+        }
+      }
+    },
+    "circle_spin": {
+      "scenario": "circle_spin",
+      "notes": "circle while the body yaws -360 deg per lap",
+      "rocker": false,
+      "bumps": false,
+      "dt": 0.001,
+      "sim_time_s": 24.00000000000696,
+      "max_pos_err_mm": 4.214001039490133,
+      "rms_pos_err_mm": 1.1090816663926646,
+      "final_pos_err_mm": 0.1911337751297395,
+      "max_yaw_err_deg": 0.3744191639596242,
+      "final_yaw_err_deg": 0.09746050679734466,
+      "actuator_energy_J": 49.95286124307747,
+      "wall_time_s": 9.970094193000477,
+      "warnings": {},
+      "modules": {
+        "fl": {
+          "crank_turns": 3.698081996824204,
+          "gimbal_x_range_deg": [
+            -45.00076438002232,
+            45.00033621498313
+          ],
+          "gimbal_y_range_deg": [
+            -45.00004463548254,
+            44.99873527790642
+          ],
+          "max_housing_rot_deg": 90.00020180315627,
+          "max_housing_dev_from_phi_model_deg": 0.22980304715724809,
+          "final_housing_rot_deg": 71.39317788331793,
+          "max_abs_tau_steer_Nm": 0.2353883295627633,
+          "max_abs_tau_drive_Nm": 0.21683650493319231,
+          "contact_fraction": 1.0,
+          "Fn_mean_N": 13.818326184546715,
+          "Fn_p1_N": 9.2993274220993,
+          "Fn_p99_N": 18.1596738746643,
+          "Fn_below_2N_fraction": 0.0,
+          "slip_lat_rms_mm_s": 3.35054047980824,
+          "slip_lon_rms_mm_s": 1.8988314546564748
+        },
+        "fr": {
+          "crank_turns": 4.1400374957164585,
+          "gimbal_x_range_deg": [
+            -45.00026409844647,
+            45.00033032857295
+          ],
+          "gimbal_y_range_deg": [
+            -45.00049427573266,
+            45.00010149948954
+          ],
+          "max_housing_rot_deg": 90.00152847156671,
+          "max_housing_dev_from_phi_model_deg": 0.1939151925630813,
+          "final_housing_rot_deg": 41.65505600253751,
+          "max_abs_tau_steer_Nm": 0.41731026114697456,
+          "max_abs_tau_drive_Nm": 0.22628667059937208,
+          "contact_fraction": 1.0,
+          "Fn_mean_N": 14.906092659156192,
+          "Fn_p1_N": 10.252543724139827,
+          "Fn_p99_N": 19.431995498038567,
+          "Fn_below_2N_fraction": 0.0,
+          "slip_lat_rms_mm_s": 3.8569914673786783,
+          "slip_lon_rms_mm_s": 2.0447580725203425
+        },
+        "rl": {
+          "crank_turns": 3.802698859769908,
+          "gimbal_x_range_deg": [
+            -44.99962434710689,
+            45.00028043328866
+          ],
+          "gimbal_y_range_deg": [
+            -44.99972917642288,
+            45.00010741638157
+          ],
+          "max_housing_rot_deg": 90.0011780937361,
+          "max_housing_dev_from_phi_model_deg": 0.18831189569014686,
+          "final_housing_rot_deg": 53.29531020553419,
+          "max_abs_tau_steer_Nm": 0.35745664488539997,
+          "max_abs_tau_drive_Nm": 0.26072517280658175,
+          "contact_fraction": 1.0,
+          "Fn_mean_N": 14.833522731078526,
+          "Fn_p1_N": 10.721992405862688,
+          "Fn_p99_N": 19.54104448823806,
+          "Fn_below_2N_fraction": 0.0,
+          "slip_lat_rms_mm_s": 3.210119677645448,
+          "slip_lon_rms_mm_s": 2.1021062379052418
+        },
+        "rr": {
+          "crank_turns": 4.360458761131799,
+          "gimbal_x_range_deg": [
+            -45.00246637954859,
+            45.000357681235116
+          ],
+          "gimbal_y_range_deg": [
+            -45.000030306292786,
+            44.99885253023689
+          ],
+          "max_housing_rot_deg": 90.00019613946671,
+          "max_housing_dev_from_phi_model_deg": 0.28277011291642395,
+          "final_housing_rot_deg": 79.91883015393664,
+          "max_abs_tau_steer_Nm": 0.24985348771776178,
+          "max_abs_tau_drive_Nm": 0.08006597477637672,
+          "contact_fraction": 1.0,
+          "Fn_mean_N": 16.090313477300874,
+          "Fn_p1_N": 11.270069873529234,
+          "Fn_p99_N": 20.62610452397663,
+          "Fn_below_2N_fraction": 0.0,
+          "slip_lat_rms_mm_s": 3.7760225006570236,
+          "slip_lon_rms_mm_s": 1.5834826308123582
+        }
+      }
+    },
+    "star": {
+      "scenario": "star",
+      "notes": "8 directions out and back, yaw held; wheel reversal allowed",
+      "rocker": false,
+      "bumps": false,
+      "dt": 0.001,
+      "sim_time_s": 44.09999999998676,
+      "max_pos_err_mm": 4.826144823147477,
+      "rms_pos_err_mm": 1.0143015128121484,
+      "final_pos_err_mm": 0.9851017566143985,
+      "max_yaw_err_deg": 0.4711217616703818,
+      "final_yaw_err_deg": -0.0932123091781817,
+      "actuator_energy_J": 31.192064137283765,
+      "wall_time_s": 19.41414881700075,
+      "warnings": {},
+      "modules": {
+        "fl": {
+          "crank_turns": 0.6250699857343015,
+          "gimbal_x_range_deg": [
+            -45.00018038524912,
+            45.00027692038338
+          ],
+          "gimbal_y_range_deg": [
+            -45.00038987198284,
+            45.00035166351674
+          ],
+          "max_housing_rot_deg": 90.00056111710286,
+          "max_housing_dev_from_phi_model_deg": 0.23098518588530703,
+          "final_housing_rot_deg": 81.7516889659567,
+          "max_abs_tau_steer_Nm": 0.28601182315101253,
+          "max_abs_tau_drive_Nm": 0.15767501699251216,
+          "contact_fraction": 1.0,
+          "Fn_mean_N": 14.311182702399362,
+          "Fn_p1_N": 10.864415779791143,
+          "Fn_p99_N": 17.752878212779212,
+          "Fn_below_2N_fraction": 0.0,
+          "slip_lat_rms_mm_s": 2.2742990071070817,
+          "slip_lon_rms_mm_s": 1.2892925741878274
+        },
+        "fr": {
+          "crank_turns": 1.1239151735519928,
+          "gimbal_x_range_deg": [
+            -45.00027692038337,
+            45.0002645370603
+          ],
+          "gimbal_y_range_deg": [
+            -45.000387311975054,
+            45.00038421313401
+          ],
+          "max_housing_rot_deg": 90.00055851165473,
+          "max_housing_dev_from_phi_model_deg": 0.2476501297169387,
+          "final_housing_rot_deg": 37.97363386783371,
+          "max_abs_tau_steer_Nm": 0.4409066253118525,
+          "max_abs_tau_drive_Nm": 0.17817675391432442,
+          "contact_fraction": 1.0,
+          "Fn_mean_N": 14.396998479498777,
+          "Fn_p1_N": 10.777870937696468,
+          "Fn_p99_N": 17.778830494250062,
+          "Fn_below_2N_fraction": 0.0,
+          "slip_lat_rms_mm_s": 2.3664037682706267,
+          "slip_lon_rms_mm_s": 1.3344483375913443
+        },
+        "rl": {
+          "crank_turns": 0.6266103118911113,
+          "gimbal_x_range_deg": [
+            -45.000296683144335,
+            45.00031366554959
+          ],
+          "gimbal_y_range_deg": [
+            -45.00041438232994,
+            45.000354633388255
+          ],
+          "max_housing_rot_deg": 90.00054755242529,
+          "max_housing_dev_from_phi_model_deg": 0.23488373806166793,
+          "final_housing_rot_deg": 81.56302758675878,
+          "max_abs_tau_steer_Nm": 0.4588427242204683,
+          "max_abs_tau_drive_Nm": 0.19712528810798224,
+          "contact_fraction": 1.0,
+          "Fn_mean_N": 15.502564884944846,
+          "Fn_p1_N": 11.903983170645153,
+          "Fn_p99_N": 18.861961505155822,
+          "Fn_below_2N_fraction": 0.0,
+          "slip_lat_rms_mm_s": 2.337793394770281,
+          "slip_lon_rms_mm_s": 1.3271815768467488
+        },
+        "rr": {
+          "crank_turns": 1.1254088762829897,
+          "gimbal_x_range_deg": [
+            -45.00031366554959,
+            45.000207199018675
+          ],
+          "gimbal_y_range_deg": [
+            -45.000345739485,
+            45.000298840314706
+          ],
+          "max_housing_rot_deg": 90.00051236068848,
+          "max_housing_dev_from_phi_model_deg": 0.24485725289114849,
+          "final_housing_rot_deg": 38.32466673219499,
+          "max_abs_tau_steer_Nm": 0.3040958580648574,
+          "max_abs_tau_drive_Nm": 0.22219637309059323,
+          "contact_fraction": 1.0,
+          "Fn_mean_N": 15.440242157651292,
+          "Fn_p1_N": 12.088902315057373,
+          "Fn_p99_N": 18.948783717170688,
+          "Fn_below_2N_fraction": 0.0,
+          "slip_lat_rms_mm_s": 2.31349508302024,
+          "slip_lon_rms_mm_s": 1.3248016443380561
+        }
+      }
+    },
+    "spin": {
+      "scenario": "spin",
+      "notes": "turn in place",
+      "rocker": false,
+      "bumps": false,
+      "dt": 0.001,
+      "sim_time_s": 8.500000000000451,
+      "max_pos_err_mm": 1.5773833092665408,
+      "rms_pos_err_mm": 0.792876241806365,
+      "final_pos_err_mm": 0.46324351310071965,
+      "max_yaw_err_deg": 0.4204011226676403,
+      "final_yaw_err_deg": 0.0550858885108776,
+      "actuator_energy_J": 8.953632657694946,
+      "wall_time_s": 3.890737022000394,
+      "warnings": {},
+      "modules": {
+        "fl": {
+          "crank_turns": 0.10533831826186967,
+          "gimbal_x_range_deg": [
+            -32.257767738904754,
+            -29.639725741684856
+          ],
+          "gimbal_y_range_deg": [
+            33.263139520081715,
+            35.55517470690935
+          ],
+          "max_housing_rot_deg": 34.27333723686712,
+          "max_housing_dev_from_phi_model_deg": 0.05883888511821456,
+          "final_housing_rot_deg": 33.420674401490515,
+          "max_abs_tau_steer_Nm": 0.25867229921550233,
+          "max_abs_tau_drive_Nm": 0.13415333552845346,
+          "contact_fraction": 1.0,
+          "Fn_mean_N": 16.454265575974734,
+          "Fn_p1_N": 11.03416802022262,
+          "Fn_p99_N": 20.96539019804379,
+          "Fn_below_2N_fraction": 0.0,
+          "slip_lat_rms_mm_s": 1.7028191233422674,
+          "slip_lon_rms_mm_s": 0.7645457045065247
+        },
+        "fr": {
+          "crank_turns": -0.1082181295136566,
+          "gimbal_x_range_deg": [
+            31.73363478018244,
+            34.54623243923651
+          ],
+          "gimbal_y_range_deg": [
+            30.853469113853823,
+            33.75759815686407
+          ],
+          "max_housing_rot_deg": 37.24845882982026,
+          "max_housing_dev_from_phi_model_deg": 0.06139086597291195,
+          "final_housing_rot_deg": 34.15069162813123,
+          "max_abs_tau_steer_Nm": 0.1316265875506263,
+          "max_abs_tau_drive_Nm": 0.0992034212075943,
+          "contact_fraction": 1.0,
+          "Fn_mean_N": 15.8968106202616,
+          "Fn_p1_N": 11.161757639995777,
+          "Fn_p99_N": 20.729517518322474,
+          "Fn_below_2N_fraction": 0.0,
+          "slip_lat_rms_mm_s": 1.7948216522361966,
+          "slip_lon_rms_mm_s": 0.4898216470227115
+        },
+        "rl": {
+          "crank_turns": -0.10822449403564416,
+          "gimbal_x_range_deg": [
+            29.6948641964041,
+            32.22810270439214
+          ],
+          "gimbal_y_range_deg": [
+            33.291488510647305,
+            35.51109238047398
+          ],
+          "max_housing_rot_deg": 34.23607899298574,
+          "max_housing_dev_from_phi_model_deg": 0.05766589030266945,
+          "final_housing_rot_deg": 34.152215202844886,
+          "max_abs_tau_steer_Nm": 0.1630649391713945,
+          "max_abs_tau_drive_Nm": 0.06103780237373561,
+          "contact_fraction": 1.0,
+          "Fn_mean_N": 13.443362764759847,
+          "Fn_p1_N": 11.066650797293377,
+          "Fn_p99_N": 16.591985871029603,
+          "Fn_below_2N_fraction": 0.0,
+          "slip_lat_rms_mm_s": 4.333372189408335,
+          "slip_lon_rms_mm_s": 1.1219564928137506
+        },
+        "rr": {
+          "crank_turns": 0.11127119365855655,
+          "gimbal_x_range_deg": [
+            -34.5778985866639,
+            -31.73827619744138
+          ],
+          "gimbal_y_range_deg": [
+            30.816824334366437,
+            33.75325037755074
+          ],
+          "max_housing_rot_deg": 37.292610292328426,
+          "max_housing_dev_from_phi_model_deg": 0.059234389136075,
+          "final_housing_rot_deg": 34.914484304494714,
+          "max_abs_tau_steer_Nm": 0.15013117193624925,
+          "max_abs_tau_drive_Nm": 0.1328384893398867,
+          "contact_fraction": 1.0,
+          "Fn_mean_N": 13.861640962425199,
+          "Fn_p1_N": 11.011880967894195,
+          "Fn_p99_N": 16.745053425786963,
+          "Fn_below_2N_fraction": 0.0,
+          "slip_lat_rms_mm_s": 4.284787616701237,
+          "slip_lon_rms_mm_s": 1.579297919400315
+        }
+      }
+    },
+    "bump": {
+      "scenario": "straight",
+      "notes": "straight line; used with the bump floor",
+      "rocker": false,
+      "bumps": true,
+      "dt": 0.001,
+      "sim_time_s": 8.500000000000451,
+      "max_pos_err_mm": 6.731085055290791,
+      "rms_pos_err_mm": 1.8771701370555296,
+      "final_pos_err_mm": 0.6689275672518976,
+      "max_yaw_err_deg": 1.2891579077789266,
+      "final_yaw_err_deg": -0.002916006423095556,
+      "actuator_energy_J": 6.84636496616496,
+      "wall_time_s": 4.436349990999588,
+      "warnings": {},
+      "modules": {
+        "fl": {
+          "crank_turns": -0.249965725138457,
+          "gimbal_x_range_deg": [
+            42.55511279580137,
+            45.000428197454774
+          ],
+          "gimbal_y_range_deg": [
+            -2.0024226948017065,
+            16.281436095821057
+          ],
+          "max_housing_rot_deg": 64.14990992471651,
+          "max_housing_dev_from_phi_model_deg": 0.1807162008274292,
+          "final_housing_rot_deg": 62.79380679542653,
+          "max_abs_tau_steer_Nm": 0.3928214016036727,
+          "max_abs_tau_drive_Nm": 0.41112684368964425,
+          "contact_fraction": 0.9476248477466505,
+          "Fn_mean_N": 14.489221357645599,
+          "Fn_p1_N": 0.0,
+          "Fn_p99_N": 29.04655004463552,
+          "Fn_below_2N_fraction": 0.05602923264311815,
+          "slip_lat_rms_mm_s": 3.5637498213583108,
+          "slip_lon_rms_mm_s": 1.7282663254318538
+        },
+        "fr": {
+          "crank_turns": 0.2501446817254629,
+          "gimbal_x_range_deg": [
+            -45.00031154070918,
+            -42.55511279580137
+          ],
+          "gimbal_y_range_deg": [
+            -1.2364928117054454,
+            16.28143609582104
+          ],
+          "max_housing_rot_deg": 63.635494555252144,
+          "max_housing_dev_from_phi_model_deg": 0.18071620082339565,
+          "final_housing_rot_deg": 62.82464841851115,
+          "max_abs_tau_steer_Nm": 0.4529358270065005,
+          "max_abs_tau_drive_Nm": 0.4670382844712432,
+          "contact_fraction": 0.9342265529841657,
+          "Fn_mean_N": 14.245950689502632,
+          "Fn_p1_N": 0.0,
+          "Fn_p99_N": 30.35193016839366,
+          "Fn_below_2N_fraction": 0.06577344701583435,
+          "slip_lat_rms_mm_s": 3.4689375667836733,
+          "slip_lon_rms_mm_s": 1.288737920671977
+        },
+        "rl": {
+          "crank_turns": -0.24957198189082824,
+          "gimbal_x_range_deg": [
+            42.55616996763999,
+            45.000569603556194
+          ],
+          "gimbal_y_range_deg": [
+            -0.6194957000507954,
+            16.2780562798131
+          ],
+          "max_housing_rot_deg": 63.21903389532282,
+          "max_housing_dev_from_phi_model_deg": 0.18069268449337328,
+          "final_housing_rot_deg": 62.72566728531225,
+          "max_abs_tau_steer_Nm": 0.4594499393023997,
+          "max_abs_tau_drive_Nm": 0.22801488037421386,
+          "contact_fraction": 0.9902557856272838,
+          "Fn_mean_N": 15.33544415010601,
+          "Fn_p1_N": 0.0,
+          "Fn_p99_N": 31.506915746621157,
+          "Fn_below_2N_fraction": 0.037758830694275276,
+          "slip_lat_rms_mm_s": 4.241558781586572,
+          "slip_lon_rms_mm_s": 5.412684986638838
+        },
+        "rr": {
+          "crank_turns": 0.2503894052476094,
+          "gimbal_x_range_deg": [
+            -45.00042673480545,
+            -42.55616996763999
+          ],
+          "gimbal_y_range_deg": [
+            -0.09915169113211429,
+            16.278056279813114
+          ],
+          "max_housing_rot_deg": 62.866879741489996,
+          "max_housing_dev_from_phi_model_deg": 0.1806926844893392,
+          "final_housing_rot_deg": 62.866879741489996,
+          "max_abs_tau_steer_Nm": 0.20854974217881275,
+          "max_abs_tau_drive_Nm": 0.17928867511238833,
+          "contact_fraction": 0.9719853836784409,
+          "Fn_mean_N": 15.632616224713031,
+          "Fn_p1_N": 0.0,
+          "Fn_p99_N": 31.375943288319334,
+          "Fn_below_2N_fraction": 0.048721071863580996,
+          "slip_lat_rms_mm_s": 4.745982398157305,
+          "slip_lon_rms_mm_s": 3.8080357748291953
+        }
+      }
+    },
+    "bump_rocker": {
+      "scenario": "straight",
+      "notes": "straight line; used with the bump floor",
+      "rocker": true,
+      "bumps": true,
+      "dt": 0.001,
+      "sim_time_s": 8.500000000000451,
+      "max_pos_err_mm": 4.8026367739243865,
+      "rms_pos_err_mm": 1.5604457617205925,
+      "final_pos_err_mm": 0.9537968668322019,
+      "max_yaw_err_deg": 0.31510267812502246,
+      "final_yaw_err_deg": 0.012532960411371195,
+      "actuator_energy_J": 6.5870026422915124,
+      "wall_time_s": 4.0827723130005324,
+      "warnings": {},
+      "modules": {
+        "fl": {
+          "crank_turns": -0.24927597662973772,
+          "gimbal_x_range_deg": [
+            42.55145238317907,
+            45.00048731807656
+          ],
+          "gimbal_y_range_deg": [
+            -0.5201626388743434,
+            16.29321811679544
+          ],
+          "max_housing_rot_deg": 63.15187970903585,
+          "max_housing_dev_from_phi_model_deg": 0.1805756181132991,
+          "final_housing_rot_deg": 62.67458324195878,
+          "max_abs_tau_steer_Nm": 0.2901837609693909,
+          "max_abs_tau_drive_Nm": 0.21675095368009278,
+          "contact_fraction": 1.0,
+          "Fn_mean_N": 15.889454310879659,
+          "Fn_p1_N": 13.555167265643004,
+          "Fn_p99_N": 17.73360402171853,
+          "Fn_below_2N_fraction": 0.001218026796589525,
+          "slip_lat_rms_mm_s": 5.678964141784758,
+          "slip_lon_rms_mm_s": 2.2799152253599284
+        },
+        "fr": {
+          "crank_turns": 0.2506643069826288,
+          "gimbal_x_range_deg": [
+            -45.00065841045112,
+            -42.551452383179075
+          ],
+          "gimbal_y_range_deg": [
+            -0.27869462339424794,
+            16.293218116795437
+          ],
+          "max_housing_rot_deg": 62.989038042646186,
+          "max_housing_dev_from_phi_model_deg": 0.1805756181132991,
+          "final_housing_rot_deg": 62.914410626212174,
+          "max_abs_tau_steer_Nm": 0.16363664625241928,
+          "max_abs_tau_drive_Nm": 0.16769496138778422,
+          "contact_fraction": 1.0,
+          "Fn_mean_N": 16.217260416425987,
+          "Fn_p1_N": 14.476479404642662,
+          "Fn_p99_N": 18.009266909186106,
+          "Fn_below_2N_fraction": 0.0,
+          "slip_lat_rms_mm_s": 6.455655508251266,
+          "slip_lon_rms_mm_s": 1.4911800698821098
+        },
+        "rl": {
+          "crank_turns": -0.2506985994622235,
+          "gimbal_x_range_deg": [
+            42.5556541117755,
+            45.000623174976326
+          ],
+          "gimbal_y_range_deg": [
+            -0.25919220968529827,
+            16.279735607396876
+          ],
+          "max_housing_rot_deg": 62.97540731106435,
+          "max_housing_dev_from_phi_model_deg": 0.1806985556052797,
+          "final_housing_rot_deg": 62.92026110128199,
+          "max_abs_tau_steer_Nm": 0.2266039764707646,
+          "max_abs_tau_drive_Nm": 0.1681903251746125,
+          "contact_fraction": 1.0,
+          "Fn_mean_N": 15.6234091960009,
+          "Fn_p1_N": 14.091614777331287,
+          "Fn_p99_N": 17.931956474368054,
+          "Fn_below_2N_fraction": 0.00243605359317905,
+          "slip_lat_rms_mm_s": 6.6465258085422105,
+          "slip_lon_rms_mm_s": 1.661191175857637
+        },
+        "rr": {
+          "crank_turns": 0.24926269951480304,
+          "gimbal_x_range_deg": [
+            -45.000333989774596,
+            -42.5556541117755
+          ],
+          "gimbal_y_range_deg": [
+            0.005131701974478022,
+            16.279735607396855
+          ],
+          "max_housing_rot_deg": 62.79613001882914,
+          "max_housing_dev_from_phi_model_deg": 0.18069855560931367,
+          "final_housing_rot_deg": 62.67222144799474,
+          "max_abs_tau_steer_Nm": 0.16835569797196334,
+          "max_abs_tau_drive_Nm": 0.1646896227321486,
+          "contact_fraction": 1.0,
+          "Fn_mean_N": 15.344744768513445,
+          "Fn_p1_N": 13.507606352408844,
+          "Fn_p99_N": 17.390156538305938,
+          "Fn_below_2N_fraction": 0.0,
+          "slip_lat_rms_mm_s": 5.926599007350973,
+          "slip_lon_rms_mm_s": 1.6697104843848418
+        }
+      },
+      "rocker_range_deg": [
+        -1.1486787594689971,
+        1.1576006183460401
+      ]
+    },
+    "circle_half_dt": {
+      "scenario": "circle",
+      "notes": "translate around a circle with yaw held: steering turns once per lap",
+      "rocker": false,
+      "bumps": false,
+      "dt": 0.0005,
+      "sim_time_s": 27.99999999997893,
+      "max_pos_err_mm": 4.949680332571473,
+      "rms_pos_err_mm": 1.3206982438908292,
+      "final_pos_err_mm": 0.2522130328200592,
+      "max_yaw_err_deg": 0.2468535334202745,
+      "final_yaw_err_deg": 0.05250207113772826,
+      "actuator_energy_J": 58.50421604326017,
+      "wall_time_s": 22.000634203999653,
+      "warnings": {},
+      "modules": {
+        "fl": {
+          "crank_turns": 2.7584840517002327,
+          "gimbal_x_range_deg": [
+            -45.00035915871533,
+            45.00031018414825
+          ],
+          "gimbal_y_range_deg": [
+            -45.000375526078436,
+            45.00034005308075
+          ],
+          "max_housing_rot_deg": 90.00055597966626,
+          "max_housing_dev_from_phi_model_deg": 0.08553722490208394,
+          "final_housing_rot_deg": 61.32441467537311,
+          "max_abs_tau_steer_Nm": 0.23145993240140483,
+          "max_abs_tau_drive_Nm": 0.15160161950366716,
+          "contact_fraction": 1.0,
+          "Fn_mean_N": 14.311468307941867,
+          "Fn_p1_N": 11.197465132823286,
+          "Fn_p99_N": 18.014239028621663,
+          "Fn_below_2N_fraction": 0.0,
+          "slip_lat_rms_mm_s": 3.202957398986184,
+          "slip_lon_rms_mm_s": 1.2082104142724952
+        },
+        "fr": {
+          "crank_turns": 3.2585400170635994,
+          "gimbal_x_range_deg": [
+            -45.0001975206589,
+            45.00029456760735
+          ],
+          "gimbal_y_range_deg": [
+            -45.00030612413117,
+            44.999992696474415
+          ],
+          "max_housing_rot_deg": 90.00050010411341,
+          "max_housing_dev_from_phi_model_deg": 0.08561362344400303,
+          "final_housing_rot_deg": 64.26512043194101,
+          "max_abs_tau_steer_Nm": 0.41814279470999494,
+          "max_abs_tau_drive_Nm": 0.15653937452770303,
+          "contact_fraction": 1.0,
+          "Fn_mean_N": 14.400244532081906,
+          "Fn_p1_N": 10.779383126548588,
+          "Fn_p99_N": 17.45442369879884,
+          "Fn_below_2N_fraction": 0.0,
+          "slip_lat_rms_mm_s": 4.061773678019075,
+          "slip_lon_rms_mm_s": 2.741105251301146
+        },
+        "rl": {
+          "crank_turns": 2.7514800200906353,
+          "gimbal_x_range_deg": [
+            -45.00016370934382,
+            45.00028338691214
+          ],
+          "gimbal_y_range_deg": [
+            -45.000284178059516,
+            45.00036037159827
+          ],
+          "max_housing_rot_deg": 90.00039216538846,
+          "max_housing_dev_from_phi_model_deg": 0.08533842154372162,
+          "final_housing_rot_deg": 62.543708766993795,
+          "max_abs_tau_steer_Nm": 0.498009101939229,
+          "max_abs_tau_drive_Nm": 0.2878312902553383,
+          "contact_fraction": 1.0,
+          "Fn_mean_N": 15.538949714886225,
+          "Fn_p1_N": 11.783774964401488,
+          "Fn_p99_N": 19.28293692267245,
+          "Fn_below_2N_fraction": 0.0,
+          "slip_lat_rms_mm_s": 2.9669874189574124,
+          "slip_lon_rms_mm_s": 1.53664788504629
+        },
+        "rr": {
+          "crank_turns": 3.251479817611293,
+          "gimbal_x_range_deg": [
+            -45.000319053450454,
+            45.00024297206676
+          ],
+          "gimbal_y_range_deg": [
+            -45.0003246764575,
+            45.000056468588916
+          ],
+          "max_housing_rot_deg": 90.00047767980179,
+          "max_housing_dev_from_phi_model_deg": 0.08539154048605367,
+          "final_housing_rot_deg": 63.0549881213226,
+          "max_abs_tau_steer_Nm": 0.2834246124805314,
+          "max_abs_tau_drive_Nm": 0.14713847398114518,
+          "contact_fraction": 1.0,
+          "Fn_mean_N": 15.380633447318628,
+          "Fn_p1_N": 11.619986571809262,
+          "Fn_p99_N": 18.828420624306105,
+          "Fn_below_2N_fraction": 0.0,
+          "slip_lat_rms_mm_s": 4.01075773384727,
+          "slip_lon_rms_mm_s": 2.382631363412262
+        }
+      }
+    },
+    "square_model_only": {
+      "scenario": "square",
+      "notes": "yaw held at 0; every corner steers +90 deg, no wheel reversal",
+      "rocker": false,
+      "bumps": false,
+      "dt": 0.001,
+      "sim_time_s": 30.500000000014904,
+      "max_pos_err_mm": 9.216240032046386,
+      "rms_pos_err_mm": 6.081187706591776,
+      "final_pos_err_mm": 3.6455838902946978,
+      "max_yaw_err_deg": 1.704968516768608,
+      "final_yaw_err_deg": -0.43891028933598913,
+      "actuator_energy_J": 36.74944949536552,
+      "wall_time_s": 13.917232076999426,
+      "warnings": {},
+      "modules": {
+        "fl": {
+          "crank_turns": 1.499054407739158,
+          "gimbal_x_range_deg": [
+            -45.000195503062194,
+            45.00027262753843
+          ],
+          "gimbal_y_range_deg": [
+            -45.00029352937975,
+            45.00036878326318
+          ],
+          "max_housing_rot_deg": 90.00051738227995,
+          "max_housing_dev_from_phi_model_deg": 0.28914149790316984,
+          "final_housing_rot_deg": 89.99984986409042,
+          "max_abs_tau_steer_Nm": 0.309348834719186,
+          "max_abs_tau_drive_Nm": 0.20044195008927762,
+          "contact_fraction": 1.0,
+          "Fn_mean_N": 14.387737896332515,
+          "Fn_p1_N": 10.663565252332871,
+          "Fn_p99_N": 18.56485681542001,
+          "Fn_below_2N_fraction": 0.0006620324395895399,
+          "slip_lat_rms_mm_s": 3.4607615646140437,
+          "slip_lon_rms_mm_s": 2.357453838944496
+        },
+        "fr": {
+          "crank_turns": 1.999196024884471,
+          "gimbal_x_range_deg": [
+            -45.000300691379124,
+            45.00022971034167
+          ],
+          "gimbal_y_range_deg": [
+            -45.000316314806014,
+            45.00022369923725
+          ],
+          "max_housing_rot_deg": 90.00049118516685,
+          "max_housing_dev_from_phi_model_deg": 0.29277972798078683,
+          "final_housing_rot_deg": 0.2894897836702277,
+          "max_abs_tau_steer_Nm": 0.4860146250222692,
+          "max_abs_tau_drive_Nm": 0.15971136698763025,
+          "contact_fraction": 1.0,
+          "Fn_mean_N": 14.334803350463293,
+          "Fn_p1_N": 10.493531553103276,
+          "Fn_p99_N": 18.515444733579983,
+          "Fn_below_2N_fraction": 0.0009930486593843098,
+          "slip_lat_rms_mm_s": 3.6464840050300444,
+          "slip_lon_rms_mm_s": 2.414892064014981
+        },
+        "rl": {
+          "crank_turns": 1.4991985010038087,
+          "gimbal_x_range_deg": [
+            -45.000245682607655,
+            45.000299873986535
+          ],
+          "gimbal_y_range_deg": [
+            -45.00024621401502,
+            45.00031072668822
+          ],
+          "max_housing_rot_deg": 90.00039758765836,
+          "max_housing_dev_from_phi_model_deg": 0.28954905983156726,
+          "final_housing_rot_deg": 89.99995744400894,
+          "max_abs_tau_steer_Nm": 0.49521948088001455,
+          "max_abs_tau_drive_Nm": 0.182882446315692,
+          "contact_fraction": 1.0,
+          "Fn_mean_N": 15.451258388189302,
+          "Fn_p1_N": 11.435470539805866,
+          "Fn_p99_N": 19.06978934921766,
+          "Fn_below_2N_fraction": 0.0,
+          "slip_lat_rms_mm_s": 3.50832140400799,
+          "slip_lon_rms_mm_s": 2.149350836156644
+        },
+        "rr": {
+          "crank_turns": 1.9990571224127445,
+          "gimbal_x_range_deg": [
+            -45.0003175981104,
+            45.000208122447525
+          ],
+          "gimbal_y_range_deg": [
+            -45.00037753514313,
+            45.00022045147323
+          ],
+          "max_housing_rot_deg": 90.00049996979548,
+          "max_housing_dev_from_phi_model_deg": 0.28602623449990916,
+          "final_housing_rot_deg": 0.3394187441237566,
+          "max_abs_tau_steer_Nm": 0.3151383543078845,
+          "max_abs_tau_drive_Nm": 0.20646970196477954,
+          "contact_fraction": 1.0,
+          "Fn_mean_N": 15.485184584150511,
+          "Fn_p1_N": 11.214856723465095,
+          "Fn_p99_N": 19.124182747678837,
+          "Fn_below_2N_fraction": 0.0006620324395895399,
+          "slip_lat_rms_mm_s": 3.4661669152061494,
+          "slip_lon_rms_mm_s": 2.055376946233092
+        }
+      }
+    },
+    "square_no_coupling_ff": {
+      "scenario": "square",
+      "notes": "yaw held at 0; every corner steers +90 deg, no wheel reversal",
+      "rocker": false,
+      "bumps": false,
+      "dt": 0.001,
+      "sim_time_s": 30.500000000014904,
+      "max_pos_err_mm": 4.9458125484780595,
+      "rms_pos_err_mm": 1.4305003430018004,
+      "final_pos_err_mm": 1.1046833433195045,
+      "max_yaw_err_deg": 0.7969516328134705,
+      "final_yaw_err_deg": -0.0037796854638894677,
+      "actuator_energy_J": 42.78228403407062,
+      "wall_time_s": 14.642660027000602,
+      "warnings": {},
+      "modules": {
+        "fl": {
+          "crank_turns": 1.5071928974437914,
+          "gimbal_x_range_deg": [
+            -45.00033814599905,
+            45.00042300151919
+          ],
+          "gimbal_y_range_deg": [
+            -45.003416427773246,
+            45.000633940065
+          ],
+          "max_housing_rot_deg": 90.00302948819481,
+          "max_housing_dev_from_phi_model_deg": 0.366181414441883,
+          "final_housing_rot_deg": 89.97109787174345,
+          "max_abs_tau_steer_Nm": 0.4532379715270633,
+          "max_abs_tau_drive_Nm": 0.3199177237402309,
+          "contact_fraction": 1.0,
+          "Fn_mean_N": 14.618435199366902,
+          "Fn_p1_N": 10.77516455472606,
+          "Fn_p99_N": 19.766871184788968,
+          "Fn_below_2N_fraction": 0.0016550810989738498,
+          "slip_lat_rms_mm_s": 6.007181232350316,
+          "slip_lon_rms_mm_s": 3.5716417696749225
+        },
+        "fr": {
+          "crank_turns": 2.0168683558132643,
+          "gimbal_x_range_deg": [
+            -45.00033146327515,
+            45.00077595045109
+          ],
+          "gimbal_y_range_deg": [
+            -45.00050701141725,
+            45.000473728188226
+          ],
+          "max_housing_rot_deg": 90.00073563280768,
+          "max_housing_dev_from_phi_model_deg": 0.29469601492933273,
+          "final_housing_rot_deg": 6.047228858664347,
+          "max_abs_tau_steer_Nm": 0.45653311418147347,
+          "max_abs_tau_drive_Nm": 0.2757393862693003,
+          "contact_fraction": 1.0,
+          "Fn_mean_N": 14.06724939939317,
+          "Fn_p1_N": 8.765520411753341,
+          "Fn_p99_N": 18.17730141002211,
+          "Fn_below_2N_fraction": 0.00033101621979476995,
+          "slip_lat_rms_mm_s": 4.312109659640818,
+          "slip_lon_rms_mm_s": 2.2711666953439704
+        },
+        "rl": {
+          "crank_turns": 1.506148292954469,
+          "gimbal_x_range_deg": [
+            -45.000279728745895,
+            45.000394996102195
+          ],
+          "gimbal_y_range_deg": [
+            -45.00045544591097,
+            45.00159694810498
+          ],
+          "max_housing_rot_deg": 90.00057317044447,
+          "max_housing_dev_from_phi_model_deg": 0.31860565647720074,
+          "final_housing_rot_deg": 89.97894580741347,
+          "max_abs_tau_steer_Nm": 0.4522029193414273,
+          "max_abs_tau_drive_Nm": 0.3563275162585924,
+          "contact_fraction": 1.0,
+          "Fn_mean_N": 15.14697787071222,
+          "Fn_p1_N": 9.78217589980492,
+          "Fn_p99_N": 19.434281755559198,
+          "Fn_below_2N_fraction": 0.0,
+          "slip_lat_rms_mm_s": 3.5463915489231597,
+          "slip_lon_rms_mm_s": 1.9165180084243096
+        },
+        "rr": {
+          "crank_turns": 2.017748430880341,
+          "gimbal_x_range_deg": [
+            -45.000274638518476,
+            45.00036478349571
+          ],
+          "gimbal_y_range_deg": [
+            -45.00027268987148,
+            45.00025260496923
+          ],
+          "max_housing_rot_deg": 90.00038492361922,
+          "max_housing_dev_from_phi_model_deg": 0.29203969028882515,
+          "final_housing_rot_deg": 6.360010955339154,
+          "max_abs_tau_steer_Nm": 0.49573138825955215,
+          "max_abs_tau_drive_Nm": 0.46635658989185114,
+          "contact_fraction": 1.0,
+          "Fn_mean_N": 15.806305138287746,
+          "Fn_p1_N": 11.859915880961388,
+          "Fn_p99_N": 21.735671606688566,
+          "Fn_below_2N_fraction": 0.0009930486593843098,
+          "slip_lat_rms_mm_s": 3.5653388090845612,
+          "slip_lon_rms_mm_s": 1.8955113699033144
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "layout": "hang",
+  "cable": {
+    "n_seg": 64,
+    "length_m": 0.25000000000010014
+  },
+  "turns_done": 5.000015822501644,
+  "twist_range_deg": [
+    -290.5511986541401,
+    228.3120893941475
+  ],
+  "span_twist_range_deg": {
+    "m_cab": [
+      -290.5511986541401,
+      228.3120893941475
+    ]
+  },
+  "twist_at_each_full_turn_deg": [
+    -228.08,
+    0.82,
+    4.02,
+    4.51,
+    4.53,
+    2.5
+  ],
+  "final_twist_deg": -4.0037926273745,
+  "min_bend_radius_mm": 16.84939614131093,
+  "settled_min_bend_radius_mm": 38.490309574510576,
+  "max_local_twist_rate_deg_per_m": 46527.92272343567,
+  "max_cyclic_curvature_range_per_m": 64.81211457651204,
+  "cyclic_bend_radius_equiv_mm": 15.429214222280608,
+  "min_cable_clearance_mm": -2.333133390208153,
+  "closest_part": "m_topbearing",
+  "clearance_by_part_mm": {
+    "m_topbearing": -2.33,
+    "m_crank_hub": -0.17,
+    "m_post_p": 2.15,
+    "m_crank_shaft": 2.57,
+    "m_post_n": 6.6,
+    "m_crank_arm": 6.66
+  },
+  "peak_steer_torque_Nm": 1.2301520580620156,
+  "warnings": {}
+}
