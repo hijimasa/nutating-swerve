@@ -27,6 +27,16 @@ python run_quad.py --scenario straight --bumps --viewer  # 左車輪の下に高
 python run_quad.py --scenario straight --bumps --rocker  # 前側ロッカーあり（比較用）
 ```
 
+手で操縦する（キーボードまたはゲームパッド）：
+
+```bash
+python teleop.py                     # ビューアのウィンドウで 矢印キー＝前後左右、, . ＝旋回、0＝停止、= - ＝速度の増減
+python teleop.py --joystick auto     # 左スティック＝並進、右スティックX＝旋回、ボタン＝停止
+python teleop.py --test              # ビューアなしで決まった指令列を流し、追従の要約を表示（動作確認用）
+```
+
+ビューアはキーの押下しか通知しないので、キーボード操作はROSの `teleop_twist_keyboard` と同じ増分式です。SpaceとBackspaceはビューア自身が使う（一時停止・リセット）ので使っていません。ゲームパッドは `pygame` があればそれを、なければLinuxのジョイスティックデバイスを直接読みます（追加パッケージ不要）。軸の割り当ては `--axes 0,1,3`（左X、左Y、右X）で変えられます。指令は加速度制限で滑らかにし、目標姿勢に積分して同じ `QuadController` で追従させます。目標姿勢は実際の姿勢から5 cm・10°以内に留める（leash）ので、操舵し直している間に指令を出しても巻き上がりません。
+
 オプション：
 
 - `--no-feedback`：位置・姿勢の補正なし（モデル制御のみ）。
@@ -56,6 +66,7 @@ python cable_test.py --layout axis --turns 5     # 検討案（不成立）：�
 | `controller.py` | モデル制御：逆運動学で操舵角と車輪速度を決め、小さな補正を加えます |
 | `scenarios.py` | 参照軌道（最小躍度の区間、ランプ付きの円） |
 | `run_quad.py` | トルク駆動のシミュレーション、ログ、要約、動画 |
+| `teleop.py` | キーボード／ゲームパッドによる手動操縦（`--test` で無人の動作確認） |
 | `kinematics_check.py` | 閉リンクの残差、姿勢の周期性、`J_phi`・`J_psi` と MuJoCo ヤコビアンの照合 |
 | `check_clearance.py` | 操舵１周のあいだの部品干渉（解析的な符号付き距離による） |
 | `cable_test.py` | 弾性ケーブル（MuJoCo cable プラグイン）のねじれ・曲げ・クリアランス。経路を3種類比較 |

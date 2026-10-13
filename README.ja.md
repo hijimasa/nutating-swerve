@@ -20,6 +20,7 @@
 | --- | --- |
 | [`single_wheel/`](single_wheel/) | 1モジュールのMuJoCoモデル。クランク＋ジンバルの閉リンクをトルク駆動で10周。幾何検証、ヤコビアンのランク、接地試験。報告は [`single_wheel/REPORT.md`](single_wheel/REPORT.md)。 |
 | [`vehicle/`](vehicle/) | 剛体車体に4モジュール。閉形式の運動学、モデル制御、31項目の自動検証（追従、荷重、段差、部品干渉、弾性ケーブル）。報告と部品構成は [`vehicle/REPORT.md`](vehicle/REPORT.md)、[`vehicle/BOM.md`](vehicle/BOM.md)。 |
+| [`vehicle/teleop.py`](vehicle/teleop.py) | シミュレーション上の車両をキーボードまたはゲームパッドで操縦するサンプル。車体座標系の速度指令を目標姿勢に積分し、同じ制御器で追従させる。 |
 | [`vehicle/results/cable_simplify/`](vehicle/results/cable_simplify/) | 配線の検討。モーターのケーブルをどこまで単純にできるか、11系統の経路を弾性ケーブルモデルで比較。成立しなかった案とその理由も含む。 |
 
 ## 機構
@@ -132,6 +133,10 @@ python verify.py && python plot_results.py
 cd ../vehicle
 python run_quad.py --scenario circle_spin --viewer
 python verify_quad.py && python plot_quad.py
+
+# 手で操縦する：ビューア上で矢印キーと , . 、またはゲームパッド
+python teleop.py                      # キーボード
+python teleop.py --joystick auto      # ゲームパッド（pygame があればそれを、なければ /dev/input/js0 を使用）
 
 # ケーブル経路
 python cable_test.py --layout hook --turns 5        # 第4版（BOMの構成）

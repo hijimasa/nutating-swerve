@@ -20,6 +20,7 @@ Terminology: "nutating" is used in the mechanical-engineering sense (a nutating 
 | --- | --- |
 | [`single_wheel/`](single_wheel/) | One module in MuJoCo: closed-loop crank + gimbal, torque driven, 10 steering turns. Geometry checks, Jacobian rank, contact test. Japanese report in [`single_wheel/REPORT.md`](single_wheel/REPORT.md). |
 | [`vehicle/`](vehicle/) | Four modules on a rigid chassis. Closed-form kinematics, model-based controller, 31 automated checks (tracking, wheel loads, bump, part clearance, elastic cable). Japanese report, bill of materials with candidate part numbers: [`vehicle/REPORT.md`](vehicle/REPORT.md), [`vehicle/BOM.md`](vehicle/BOM.md). |
+| [`vehicle/teleop.py`](vehicle/teleop.py) | Drive the simulated vehicle by hand with the keyboard or a gamepad. Body-frame velocity commands are integrated into a reference pose that the same controller tracks. |
 | [`vehicle/results/cable_simplify/`](vehicle/results/cable_simplify/) | The wiring study: how simple can the motor cable be? Eleven routing families compared with an elastic cable model, including the ones that fail and why. |
 
 All documents inside the folders are in Japanese. This README and [README.ja.md](README.ja.md) summarise them.
@@ -134,6 +135,10 @@ python verify.py && python plot_results.py
 cd ../vehicle
 python run_quad.py --scenario circle_spin --viewer
 python verify_quad.py && python plot_quad.py
+
+# drive it yourself: arrow keys / , . in the viewer window, or a gamepad
+python teleop.py                      # keyboard
+python teleop.py --joystick auto      # gamepad (pygame if installed, else /dev/input/js0)
 
 # cable routes
 python cable_test.py --layout hook --turns 5        # v4, as in the BOM
